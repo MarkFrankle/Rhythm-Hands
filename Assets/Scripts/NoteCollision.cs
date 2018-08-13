@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Note : MonoBehaviour
+public class NoteCollision : MonoBehaviour
 {
-    public bool isValid = false;
-
     public GameObject gameManager;
     private ScoreManager sm;
 
-	void Awake()
-	{
-	    gameManager = GameObject.FindGameObjectWithTag("GameManager");
+    void Awake()
+    {
         sm = gameManager.GetComponent<ScoreManager>();
-	}
+    }
 
     void OnTriggerEnter(Collider col)
     {
