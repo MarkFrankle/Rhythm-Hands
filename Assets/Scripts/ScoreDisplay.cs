@@ -33,7 +33,7 @@ public class ScoreDisplay : MonoBehaviour
 
     public void SetMultiplier(int multiplier)
     {
-        scoreText.text = "Multiplier: x" + multiplier;
+        multiplierText.text = "Multiplier: x" + multiplier;
     }
 
     public void SetAll(int score, int combo, int multiplier)

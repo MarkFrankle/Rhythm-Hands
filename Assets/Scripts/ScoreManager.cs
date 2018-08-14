@@ -7,26 +7,30 @@ public class ScoreManager : MonoBehaviour
     public GameObject scorePanel;
     private ScoreDisplay sd;
 
-    private int score = 0;
-    private int combo = 0;
-    private int multiplier = 0;
-    private int comboCounter = 0;
+    public int score;
+    public int combo;
+    public int multiplier;
+    public int comboCounter;
 
     void Awake()
     {
+        score = 0;
+        combo = 0;
+        multiplier = 1;
         sd = scorePanel.GetComponent<ScoreDisplay>();
+        sd.SetAll(score, combo, multiplier);
     }
 
     public void NoteMissed()
     {
-        combo = 0;
+        combo = 1;
         comboCounter = 0;
         multiplier = 1;
         sd.Miss();
     }
 
     /*
-     * When a note is hit, the user gains points equal to the note times the multiplier
+     * When a note is hit, the user gains points equal to the multiplier
      * Then, the combo counter increases by one
      * If the combo counter >= multiplier, multiplier goes to the next power of two
      */
@@ -41,5 +45,9 @@ public class ScoreManager : MonoBehaviour
             comboCounter = 0;
             multiplier *= 2;
         }
+
+        Debug.Log("Hit! Score: " + score);
+        //sd.SetScore(score);
+        sd.SetAll(score, combo, multiplier);
     }
 }

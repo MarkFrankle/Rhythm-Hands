@@ -1,16 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+public class GazeManager : MonoBehaviour
+{
+    public float sightlength = 100.0f;
+    public GameObject selectedObj;
 
-public class GazeManager : MonoBehaviour {
+    private int layerMask;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Awake()
+    {
+        layerMask = LayerMask.GetMask("ButtonUI");
+    }
+
+    void FixedUpdate()
+    {
+        RaycastHit seen;
+        Ray raydirection = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(raydirection, out seen, sightlength, layerMask))
+        {
+            selectedObj = seen.transform.gameObject;
+            if (selectedObj.tag == "UI")
+            {
+                Debug.Log("RaycastHit UI: " + selectedObj.name);
+            }
+        }
+    }
 }
