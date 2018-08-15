@@ -13,6 +13,7 @@ public class Note : MonoBehaviour
 	{
 	    gameManager = GameObject.FindGameObjectWithTag("GameManager");
         sm = gameManager.GetComponent<ScoreManager>();
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,-1.5f);
 	}
 
     void OnTriggerEnter(Collider col)
@@ -30,7 +31,7 @@ public class Note : MonoBehaviour
         }
         else if (col.gameObject.tag == "GameController")
         {
-            Destroy(this.gameObject);
+           // Destroy(this.gameObject);
             sm.NoteHit();
         }
     }
