@@ -8,6 +8,7 @@ public class NoteHardCoder : MonoBehaviour
     public Material mat1;
     public Material mat2;
     public GameObject note;
+    public GameObject beatParent;
 
     public bool CreateMode;
     public KeyCode key;
@@ -19,6 +20,7 @@ public class NoteHardCoder : MonoBehaviour
         {
             temp = Instantiate(note, transform.position, Quaternion.Euler(90, 0, 0));
             temp.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -1);
+            temp.transform.parent = beatParent.transform;
         }
     }
 

@@ -8,17 +8,18 @@ public class Note : MonoBehaviour
 
     public GameObject gameManager;
     private ScoreManager sm;
+	public float noteSpeed = -.922f;
 
 	void Awake()
 	{
 	    gameManager = GameObject.FindGameObjectWithTag("GameManager");
         sm = gameManager.GetComponent<ScoreManager>();
-        GetComponent<Rigidbody>().velocity = new Vector3(0,0,-1.5f);
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,noteSpeed);
 	}
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Triggered  by " + col.gameObject.name);
+        //Debug.Log("Triggered  by " + col.gameObject.name);
         //Debug.Log("Tag: " + col.gameObject.tag);
         if (col.gameObject.tag == "DestroyPlane")
         {
