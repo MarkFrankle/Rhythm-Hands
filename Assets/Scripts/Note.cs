@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Note : MonoBehaviour
 {
     public bool isValid = false;
+    public bool isLastNote = false;
 
     public GameObject gameManager;
     private ScoreManager sm;
@@ -21,9 +23,16 @@ public class Note : MonoBehaviour
     {
         //Debug.Log("Triggered  by " + col.gameObject.name);
         //Debug.Log("Tag: " + col.gameObject.tag);
+        if (isLastNote)
+        {
+            EndOfGame eog = gameManager.GetComponent<EndOfGame>();
+            eog.SwitchEndScreen();
+        }
+
         if (col.gameObject.tag == "DestroyPlane")
         {
             Destroy(this.gameObject);
+            
             sm.NoteMissed();
         }
         else if (col.gameObject.tag == "ValidPlane")
@@ -32,7 +41,7 @@ public class Note : MonoBehaviour
         }
         else if (col.gameObject.tag == "GameController")
         {
-           // Destroy(this.gameObject);
+            Destroy(this.gameObject);
             sm.NoteHit();
         }
     }

@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &593803
@@ -381,7 +382,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 59062425}
   m_LocalRotation: {x: 0.7071062, y: 0.00000014907802, z: -0.00000009853473, w: 0.7071075}
-  m_LocalPosition: {x: 0, y: 0, z: 1363}
+  m_LocalPosition: {x: 0, y: 0, z: 1367.5}
   m_LocalScale: {x: 5, y: 0.2500002, z: 5}
   m_Children: []
   m_Father: {fileID: 1565084067}
@@ -400,6 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &59062428
@@ -590,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &125752483
 Transform:
   m_ObjectHideFlags: 0
@@ -745,6 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &160520079
@@ -868,6 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &190796616
@@ -991,6 +995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &201227365
@@ -1114,6 +1119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &235200720
@@ -1324,6 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &341616952
@@ -1524,6 +1531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &364623848
@@ -1647,6 +1655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &368333303
@@ -1742,7 +1751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &374832914
 Transform:
   m_ObjectHideFlags: 0
@@ -1897,6 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &381567925
@@ -1972,6 +1982,130 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381567922}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &384326216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1314301437646808, guid: 542b8f63313b0824fa8567c5090e1b21,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384326217}
+  - component: {fileID: 384326222}
+  - component: {fileID: 384326221}
+  - component: {fileID: 384326220}
+  - component: {fileID: 384326219}
+  - component: {fileID: 384326218}
+  m_Layer: 0
+  m_Name: EndNote
+  m_TagString: Note
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384326217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4504745544087204, guid: 542b8f63313b0824fa8567c5090e1b21,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384326216}
+  m_LocalRotation: {x: 0.7071062, y: 0.00000014907802, z: -0.00000009853473, w: 0.7071075}
+  m_LocalPosition: {x: 0, y: 0, z: 1656.5}
+  m_LocalScale: {x: 4.9999995, y: 0.2500001, z: 5.0000024}
+  m_Children: []
+  m_Father: {fileID: 1565084067}
+  m_RootOrder: 100
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &384326218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114221634656292644, guid: 542b8f63313b0824fa8567c5090e1b21,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384326216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8d5cc262f3794469d38fbe6753fde7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isValid: 1
+  isLastNote: 1
+  gameManager: {fileID: 413349869}
+  noteSpeed: -0.935
+--- !u!54 &384326219
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 54171473316875894, guid: 542b8f63313b0824fa8567c5090e1b21,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384326216}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &384326220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 65633824010246590, guid: 542b8f63313b0824fa8567c5090e1b21,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384326216}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &384326221
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 23040857919029956, guid: 542b8f63313b0824fa8567c5090e1b21,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384326216}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 09c959266ac2157479e39c9159e413fc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &384326222
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 33742068938193956, guid: 542b8f63313b0824fa8567c5090e1b21,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384326216}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &406438360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,7 +2135,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406438360}
   m_LocalRotation: {x: 0.7071062, y: 0.00000014907802, z: -0.00000009853473, w: 0.7071075}
-  m_LocalPosition: {x: 0, y: 0, z: 1372}
+  m_LocalPosition: {x: 0, y: -0, z: 1376.5}
   m_LocalScale: {x: 5, y: 0.2500002, z: 5}
   m_Children: []
   m_Father: {fileID: 1565084067}
@@ -2020,6 +2154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &406438363
@@ -2143,6 +2278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &411885436
@@ -2266,6 +2402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &412923897
@@ -2350,6 +2487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413349871}
   - component: {fileID: 413349870}
+  - component: {fileID: 413349872}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: GameManager
@@ -2391,6 +2529,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &413349872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 413349869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8274dc0451a268c478fb1a5e972621b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndGameSceneIndex: 2
 --- !u!21 &417671951
 Material:
   serializedVersion: 6
@@ -2496,36 +2646,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 473675403}
   m_CullTransparentMesh: 0
---- !u!1 &475424031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1271408919267998, guid: 410045ab627ab6640b8c851e14d1117b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 475424032}
-  m_Layer: 0
-  m_Name: Completed Beat Notes (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &475424032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4069373269885898, guid: 410045ab627ab6640b8c851e14d1117b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 475424031}
-  m_LocalRotation: {x: -0, y: -0, z: 1.5265567e-15, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 223.7}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
-  m_Children: []
-  m_Father: {fileID: 1761193449}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510794720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,6 +2694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &510794723
@@ -2842,6 +2963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &551741348
@@ -2965,6 +3087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &560467760
@@ -3105,6 +3228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &587401972
@@ -3409,6 +3533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &720990865
@@ -3532,6 +3657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &721658572
@@ -3655,6 +3781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &726310178
@@ -3778,6 +3905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &732736858
@@ -3901,6 +4029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &738104967
@@ -4024,6 +4153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &745366645
@@ -4147,6 +4277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &772780625
@@ -4270,6 +4401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &787926418
@@ -4393,6 +4525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &789993251
@@ -4516,6 +4649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &813399140
@@ -4639,6 +4773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &847925156
@@ -4762,6 +4897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &848435080
@@ -4977,6 +5113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &861912866
@@ -5100,6 +5237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &890080651
@@ -5223,6 +5361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &891758257
@@ -5346,6 +5485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &895909048
@@ -5469,6 +5609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &896158766
@@ -5631,9 +5772,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965057115}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.17957246, y: 1.5723209, z: 6.84883}
-  m_LocalScale: {x: 0.5, y: 0.01, z: 0.5}
+  m_LocalRotation: {x: 0.7071062, y: 0.00000014907802, z: -0.00000009853473, w: 0.7071075}
+  m_LocalPosition: {x: -0, y: -0, z: -192.1}
+  m_LocalScale: {x: 5, y: 0.25000018, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -5686,6 +5827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &989727189
@@ -5809,6 +5951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &996593306
@@ -5932,6 +6075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1003845248
@@ -6055,6 +6199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1012592852
@@ -6178,6 +6323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1013264025
@@ -6253,36 +6399,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1013264022}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1029181198
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1563762963545662, guid: 542b8f63313b0824fa8567c5090e1b21,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1029181199}
-  m_Layer: 0
-  m_Name: WIP Notes (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1029181199
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4236960390832118, guid: 542b8f63313b0824fa8567c5090e1b21,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1029181198}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1761193449}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1040781954
 GameObject:
   m_ObjectHideFlags: 0
@@ -6331,6 +6447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1040781957
@@ -6454,6 +6571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1071278307
@@ -6577,6 +6695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1074361960
@@ -6700,6 +6819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1082632292
@@ -6823,6 +6943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1088490967
@@ -6946,6 +7067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1089165296
@@ -7069,6 +7191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1111182945
@@ -7192,6 +7315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1123247336
@@ -7315,6 +7439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1129258870
@@ -7438,6 +7563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1141788341
@@ -7561,6 +7687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1193396799
@@ -7684,6 +7811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1199208413
@@ -7807,6 +7935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1223846863
@@ -7958,6 +8087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1236122565
@@ -8081,6 +8211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1240418934
@@ -8204,6 +8335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1248148785
@@ -8327,6 +8459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1256305821
@@ -8450,6 +8583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1259410137
@@ -8573,6 +8707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1265188626
@@ -8775,6 +8910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1319372429
@@ -8898,6 +9034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1323899721
@@ -9021,6 +9158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1348179615
@@ -9144,6 +9282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1349537531
@@ -9267,6 +9406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1372257099
@@ -9390,6 +9530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1374520662
@@ -9513,6 +9654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1397942104
@@ -9641,6 +9783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1404438653
@@ -9764,6 +9907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1410500383
@@ -9887,6 +10031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1487991077
@@ -10010,6 +10155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1488155710
@@ -10133,6 +10279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1502724998
@@ -10410,6 +10557,7 @@ Transform:
   - {fileID: 1397942102}
   - {fileID: 1942656250}
   - {fileID: 1833132350}
+  - {fileID: 384326217}
   m_Father: {fileID: 1761193449}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10461,6 +10609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1575495724
@@ -10663,6 +10812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1600335496
@@ -10865,6 +11015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1635784737
@@ -10960,7 +11111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1644082782
 Transform:
   m_ObjectHideFlags: 0
@@ -11115,6 +11266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1673926358
@@ -11238,6 +11390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1673966283
@@ -11361,6 +11514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1682630347
@@ -11484,6 +11638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1708131654
@@ -11607,6 +11762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1737458974
@@ -11730,6 +11886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1746615950
@@ -11995,8 +12152,6 @@ Transform:
   m_Children:
   - {fileID: 1565084067}
   - {fileID: 1233573844}
-  - {fileID: 1029181199}
-  - {fileID: 475424032}
   m_Father: {fileID: 1989216292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12054,7 +12209,7 @@ MeshRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1761193448}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12139,6 +12294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1774242381
@@ -12262,6 +12418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1775662906
@@ -12385,6 +12542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1790042486
@@ -12508,6 +12666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1801876402
@@ -12631,6 +12790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1829494230
@@ -12754,6 +12914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1833132352
@@ -12877,6 +13038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1853704580
@@ -13129,6 +13291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1875298122
@@ -13252,6 +13415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1920484532
@@ -13375,6 +13539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1926168626
@@ -13498,6 +13663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1935777495
@@ -13621,6 +13787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1942656252
@@ -13744,6 +13911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1978994238
@@ -13901,6 +14069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &1992755679
@@ -14024,6 +14193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &2006972822
@@ -14219,6 +14389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &2020630718
@@ -14342,6 +14513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &2038476744
@@ -14465,6 +14637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &2056364047
@@ -14743,6 +14916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &2078296554
@@ -14866,6 +15040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &2099693816
@@ -14989,6 +15164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isValid: 1
+  isLastNote: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.935
 --- !u!54 &2138660491
