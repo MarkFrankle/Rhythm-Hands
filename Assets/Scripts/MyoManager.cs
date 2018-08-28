@@ -12,11 +12,26 @@ public class MyoManager : MonoBehaviour {
     // Myo game object to connect with.
     // This object must have a ThalmicMyo script attached.
     public GameObject myoHub;
-    private ThalmicHub hub = null;
     public ThalmicMyo leftMyo = null;
     public ThalmicMyo rightMyo = null;
-    private Pose _lastPose = Pose.Unknown;
-
+    //public DummyAnimatorScript leftArm;
+    //public DummyAnimatorScript rightArm;
+    private ThalmicHub hub = null;
+    /*
+    public bool PoseCheck(Arm arm, Pose requiredPose)
+    {
+        Pose currentPose;
+        if(arm == Arm.Left)
+        {
+            currentPose = leftArm.LastPose;
+        }
+        else
+        {
+            currentPose = rightArm.LastPose;
+        }
+        return (currentPose == requiredPose);
+    }
+    */
     public void PairMyos()
     {
         if(hub == null)
@@ -59,24 +74,6 @@ public class MyoManager : MonoBehaviour {
             rightMyo.Vibrate(VibrationType.Short);
         }
     }
-
-
-    /*
-    void Update()
-    {
-        if (thalmicMyo.pose != _lastPose)
-        {
-            _lastPose = thalmicMyo.pose;
-
-            // Vibrate the Myo armband when a fist is made.
-            if (thalmicMyo.pose == Pose.Fist)
-            {
-                thalmicMyo.Vibrate(VibrationType.Medium);
-
-            }
-        }
-    }
-    */
 
     public bool MyoPairCheck()
     {

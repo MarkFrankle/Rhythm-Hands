@@ -70,7 +70,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Thickness: 5
+    - _Thickness: 3
     - _UVSec: 0
     - _ZWrite: 1
     - g_flCornerAdjust: 0
@@ -78,5 +78,5 @@ Material:
     m_Colors:
     - _Color: {r: 0.745283, g: 0.17225882, b: 0.17225882, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 1, g: 0, b: 0.477, a: 1}
+    - _OutlineColor: {r: 0.49116156, g: 0.37348703, b: 0.7264151, a: 1}
     - g_vOutlineColor: {r: 0, g: 0.28223228, b: 1, a: 1}

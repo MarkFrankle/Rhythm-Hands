@@ -50,7 +50,7 @@ public class ScoreManager : MonoBehaviour
         combo = 1;
         comboCounter = 0;
         multiplier = 1;
-        //sd.Miss();
+        sd.Miss();
         misses++;
     }
 
@@ -65,7 +65,7 @@ public class ScoreManager : MonoBehaviour
 
         IncreaseCombo();
 
-        //sd.SetAll(score, combo, multiplier);
+        sd.SetAll(score, combo, multiplier);
         hits++;
     }
 
@@ -76,7 +76,7 @@ public class ScoreManager : MonoBehaviour
 
         IncreaseCombo();
 
-        //sd.SetAll(score, combo, multiplier);
+        sd.SetAll(score, combo, multiplier);
     }
 
     private void IncreaseCombo()

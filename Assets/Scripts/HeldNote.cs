@@ -7,8 +7,6 @@ using Pose = Thalmic.Myo.Pose;
 
 public class HeldNote : Note
 {
-    public Pose RequiredPose = Pose.Unknown;
-
     public float HoldTime;
     public GameObject ChildWithMaterial;
 
@@ -20,21 +18,48 @@ public class HeldNote : Note
     void Awake()
 	{
         _noteMaterial = ChildWithMaterial.GetComponent<SkinnedMeshRenderer>().material;
-
-        /*
-        var properties = _noteMaterial.GetTexturePropertyNames();
-        foreach(string p in properties)
-        {
-            Debug.Log(p);
-        }
-        */
-
         _originalOutlineWidth = _noteMaterial.GetFloat("_Thickness");
         AwakeTasks();
 
 
 	}
     
+    protected override void MakeVisible()
+    {
+        ChildWithMaterial.GetComponent<SkinnedMeshRenderer>().enabled = true;
+
+        // TODO: If I make animated notes held
+        /*
+        if (RequiredPose == Pose.Unknown)
+        {
+            ChildWithMaterial.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        }
+        else
+        {
+            Hand.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            Sleeve.GetComponent<MeshRenderer>().enabled = true;
+        }
+        */
+    }
+
+    protected override void MakeInvisible()
+    {
+        ChildWithMaterial.GetComponent<SkinnedMeshRenderer>().enabled = false;
+
+        // TODO: If I make animated notes held
+        /*
+        if (RequiredPose == Pose.Unknown)
+        {
+            ChildWithMaterial.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        }
+        else
+        {
+            Hand.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            Sleeve.GetComponent<MeshRenderer>().enabled = false;
+        }
+        */
+    }
+
     void Update()
     {
 
@@ -90,7 +115,11 @@ public class HeldNote : Note
         _noteInProgress = false;
         _touchedMyo = null;
         EndTimer();
-        sm.ScoreLongNote(_time);
+        if (!testing)
+        {
+
+            sm.ScoreLongNote(_time);
+        }
         StopCoroutine(OutlineCountdown());
         _time = 0;
         Destroy(this.gameObject);
@@ -104,7 +133,12 @@ public class HeldNote : Note
         // Get the myo band
         Arm touchedArm = col.gameObject.GetComponent<Controller>().arm;
         _touchedMyo = gameManager.GetComponent<MyoManager>().GetMyoByArm(touchedArm);
-        bool correctPose = (_touchedMyo.pose == RequiredPose || RequiredPose == Pose.Unknown);
+        
+        
+        //bool correctPose = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().PoseCheck(touchedArm, RequiredPose));
+        bool correctPose = true;
+
+
         bool correctArm = (touchedArm == requiredArm || requiredArm == Arm.Unknown);
         if (correctPose && correctArm)
         {
@@ -156,5 +190,5 @@ public class HeldNote : Note
     {
         _stopTimer = true;
     }
-    
+
 }

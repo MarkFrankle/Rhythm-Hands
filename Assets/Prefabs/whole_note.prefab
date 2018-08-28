@@ -360,10 +360,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLastNote: 0
+  isVisible: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.922
   requiredArm: 2
   RequiredPose: 65535
+  Hand: {fileID: 0}
+  Sleeve: {fileID: 0}
   HoldTime: 1
   ChildWithMaterial: {fileID: 1977281456328686}
   _noteInProgress: 0
@@ -387,7 +390,7 @@ SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977281456328686}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
