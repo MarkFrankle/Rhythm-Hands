@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
     // Game index until song picker is ready
     public int nextIndex;
+    public GameObject gameManager;
+    public GameObject playButton;
+    public GameObject syncButton;
 
     public void PlayGame()
     {
+
         SceneManager.LoadScene(nextIndex);
     }
 
@@ -16,5 +20,19 @@ public class MainMenu : MonoBehaviour {
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void SyncMyos()
+    {
+        MyoManager mm = gameManager.GetComponent<MyoManager>();
+        mm.PairMyos();
+        if (mm.MyoPairCheck())
+        {
+            syncButton.SetActive(false);
+            playButton.SetActive(true);
+        } else
+        {
+            Debug.LogError("Pairing failed");
+        }
     }
 }

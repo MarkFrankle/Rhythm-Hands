@@ -37,6 +37,19 @@ public class ThalmicHub : MonoBehaviour
         get { return _hub != null; }
     }
 
+    public List<ThalmicMyo> Myos
+    {
+        get
+        {
+            return _myos;
+        }
+
+        set
+        {
+            _myos = value;
+        }
+    }
+
     // Reset the hub. This function is typically used if initialization failed to attempt to initialize again (e.g.
     // after asking the user to ensure that Myo Connect is running).
     public bool ResetHub() {
@@ -44,7 +57,7 @@ public class ThalmicHub : MonoBehaviour
             _hub.Dispose ();
             _hub = null;
 
-            foreach (ThalmicMyo myo in _myos) {
+            foreach (ThalmicMyo myo in Myos) {
                 myo.internalMyo = null;
             }
         }
@@ -86,11 +99,11 @@ public class ThalmicHub : MonoBehaviour
 
             var myo = child.gameObject.GetComponent<ThalmicMyo> ();
             if (myo != null) {
-                _myos.Add(myo);
+                Myos.Add(myo);
             }
         }
 
-        if (_myos.Count < 1) {
+        if (Myos.Count < 1) {
             string errorMessage = "The ThalmicHub's GameObject must have at least one child with a ThalmicMyo component.";
 #if UNITY_EDITOR
             EditorUtility.DisplayDialog ("Thalmic Hub has no Myo children", errorMessage, "OK");
@@ -143,7 +156,7 @@ public class ThalmicHub : MonoBehaviour
 
     void hub_MyoPaired (object sender, Thalmic.Myo.MyoEventArgs e)
     {
-        foreach (ThalmicMyo myo in _myos) {
+        foreach (ThalmicMyo myo in Myos) {
             if (myo.internalMyo == null) {
                 myo.internalMyo = e.Myo;
                 break;

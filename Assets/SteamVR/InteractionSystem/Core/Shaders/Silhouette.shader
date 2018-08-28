@@ -10,7 +10,7 @@ Shader "Valve/VR/Silhouette"
 	Properties
 	{
 		g_vOutlineColor( "Outline Color", Color ) = ( .5, .5, .5, 1 )
-		g_flOutlineWidth( "Outline width", Range ( .001, 0.03 ) ) = .005
+		g_flOutlineWidth( "Outline Width", Range ( .001, 0.03 ) ) = .005
 		g_flCornerAdjust( "Corner Adjustment", Range( 0, 2 ) ) = .5
 	}
 

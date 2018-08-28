@@ -11,6 +11,11 @@ TagManager:
   - FxTemporaire
   - GameManager
   - UI
+  - VisibleNotes
+  - ScorePanel
+  - ScoreText
+  - MaxComboText
+  - EndNote
   layers:
   - Default
   - TransparentFX

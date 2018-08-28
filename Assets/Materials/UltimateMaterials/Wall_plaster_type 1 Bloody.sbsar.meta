@@ -1,0 +1,79 @@
+fileFormatVersion: 2
+guid: 22345c930c8fc954a99ce313120ed19a
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: Wall_plaster_type 1 Bloody/Wall_plaster_type 1 Bloody
+    400000: Wall_plaster_type 1 Bloody/Wall_plaster_type 1 Bloody/Transform
+    2100000: mat.Wall_plaster_type_1
+    2300000: Wall_plaster_type 1 Bloody/Wall_plaster_type 1 Bloody/MeshRenderer
+    2800000: Wall_plaster_type_1_Base Color
+    2800002: Wall_plaster_type_1_Normal
+    2800004: Wall_plaster_type_1_Metallic
+    2800006: Wall_plaster_type_1_Height
+    3300000: Wall_plaster_type 1 Bloody/Wall_plaster_type 1 Bloody/MeshFilter
+    11400000: sbsar
+    11400002: graph0
+    13500000: Wall_plaster_type 1 Bloody/Wall_plaster_type 1 Bloody/SphereCollider
+    100100000: Wall_plaster_type 1 Bloody
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  mGraphInstanceData:
+  - graphLabel: Wall_plaster_type_1
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://Wall_plaster_type_1\" label=\"\" >\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: Base Color,Normal,Metallic,Height
+    texturePackingList:
+    - outputName: Base Color
+      alphaSource: Base Color
+    - outputName: Normal
+      alphaSource: Normal
+    - outputName: Roughness
+      alphaSource: Roughness
+    - outputName: Metallic
+      alphaSource: Smoothness
+    - outputName: Height
+      alphaSource: Height
+    colorSpaceList:
+    - outputName: Base Color
+      bLinear: 0
+    - outputName: Normal
+      bLinear: 1
+    - outputName: Roughness
+      bLinear: 1
+    - outputName: Metallic
+      bLinear: 1
+    - outputName: Height
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: Default
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    - label: Standalone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    - label: iPhone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    material: {instanceID: 0}

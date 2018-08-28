@@ -26,7 +26,7 @@ public class NoteHardCoder : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Touched: " + col.gameObject.name);
+        //Debug.Log("Touched: " + col.gameObject.name);
         GetComponent<MeshRenderer>().material = mat2;
     }
 
