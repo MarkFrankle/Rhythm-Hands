@@ -1,0 +1,74 @@
+fileFormatVersion: 2
+guid: ff40fbc3bf9c3254da51f2b247de71a0
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: Stainless_Steel/Stainless_Steel
+    400000: Stainless_Steel/Stainless_Steel/Transform
+    2100000: mat.Stainless_Steel
+    2300000: Stainless_Steel/Stainless_Steel/MeshRenderer
+    2800000: Stainless_Steel_Base Color
+    2800002: Stainless_Steel_Normal
+    2800004: Stainless_Steel_Metallic
+    3300000: Stainless_Steel/Stainless_Steel/MeshFilter
+    11400000: sbsar
+    11400002: graph0
+    13500000: Stainless_Steel/Stainless_Steel/SphereCollider
+    100100000: Stainless_Steel
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  mGraphInstanceData:
+  - graphLabel: Stainless_Steel
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://Stainless_Steel\" label=\"\" >\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: Base Color,Normal,Metallic
+    texturePackingList:
+    - outputName: Base Color
+      alphaSource: Base Color
+    - outputName: Normal
+      alphaSource: Normal
+    - outputName: Roughness
+      alphaSource: Roughness
+    - outputName: Metallic
+      alphaSource: Smoothness
+    colorSpaceList:
+    - outputName: Base Color
+      bLinear: 0
+    - outputName: Normal
+      bLinear: 1
+    - outputName: Roughness
+      bLinear: 1
+    - outputName: Metallic
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: Default
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    - label: Standalone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    - label: iPhone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    material: {instanceID: 0}

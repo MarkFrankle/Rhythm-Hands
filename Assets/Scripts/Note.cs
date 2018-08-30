@@ -1,37 +1,50 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Arm = Thalmic.Myo.Arm;
+using Pose = Thalmic.Myo.Pose;
 
-public class Note : MonoBehaviour
+
+public abstract class Note : MonoBehaviour
 {
-    public bool isValid = false;
+    public bool isLastNote = false;
+    public bool testing = false;
+    public bool isVisible;
 
     public GameObject gameManager;
-    private ScoreManager sm;
+	public float noteSpeed = -.922f;
+    public Arm requiredArm = Arm.Unknown;
+    public Pose RequiredPose = Pose.Unknown;
+    protected ScoreManager sm;
+    protected ThalmicMyo _touchedMyo = null;
+    public GameObject Hand;
+    public GameObject Sleeve;
 
-	void Awake()
+
+    protected virtual void AwakeTasks()
 	{
 	    gameManager = GameObject.FindGameObjectWithTag("GameManager");
         sm = gameManager.GetComponent<ScoreManager>();
-	}
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,noteSpeed);
 
-    void OnTriggerEnter(Collider col)
+        if (isVisible)
+        {
+            MakeVisible();
+        }
+        else
+        {
+            MakeInvisible();
+        }
+    }
+
+    protected abstract void MakeVisible();
+
+    protected abstract void MakeInvisible();
+
+    protected virtual void DestroyPlaneTouched()
     {
-        Debug.Log("Triggered  by " + col.gameObject.name);
-        //Debug.Log("Tag: " + col.gameObject.tag);
-        if (col.gameObject.tag == "DestroyPlane")
-        {
-            Destroy(this.gameObject);
-            sm.NoteMissed();
-        }
-        else if (col.gameObject.tag == "ValidPlane")
-        {
-            GetComponent<Note>().isValid = true;
-        }
-        else if (col.gameObject.tag == "GameController")
-        {
-            Destroy(this.gameObject);
-            sm.NoteHit();
-        }
+        Destroy(this.gameObject);
+        sm.NoteMissed();
     }
 }

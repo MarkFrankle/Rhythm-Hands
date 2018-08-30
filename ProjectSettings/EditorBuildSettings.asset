@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+  - enabled: 0
+    path: Assets/Scenes/VRMainMenu.unity
     guid: 78350c66be30d74488360380e9d7bae9
+  - enabled: 1
+    path: Assets/Scenes/TraditionalMainMenu.unity
+    guid: cd7e2e5c2a60ef841bdd6bb0c2ab6456
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: a1980f837b74c77459060056fc179a81
+  - enabled: 1
+    path: Assets/Scenes/TraditionalEndScreen.unity
+    guid: c54bf5a0947e84f499199252e9e2ade4
   m_configObjects: {}

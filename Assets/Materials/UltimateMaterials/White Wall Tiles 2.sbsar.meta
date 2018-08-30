@@ -1,0 +1,84 @@
+fileFormatVersion: 2
+guid: 13b57d45fd332e140a7e82c7c5efc557
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: White Wall Tiles 2/White Wall Tiles 2
+    400000: White Wall Tiles 2/White Wall Tiles 2/Transform
+    2100000: mat.Wall_Tiles
+    2300000: White Wall Tiles 2/White Wall Tiles 2/MeshRenderer
+    2800000: Wall_Tiles_Base Color
+    2800002: Wall_Tiles_Normal
+    2800004: Wall_Tiles_Metallic
+    2800006: Wall_Tiles_Height
+    2800008: Wall_Tiles_AO
+    3300000: White Wall Tiles 2/White Wall Tiles 2/MeshFilter
+    11400000: sbsar
+    11400002: graph0
+    13500000: White Wall Tiles 2/White Wall Tiles 2/SphereCollider
+    100100000: White Wall Tiles 2
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  mGraphInstanceData:
+  - graphLabel: Wall_Tiles
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://Wall_Tiles\" label=\"\" >\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: Base Color,Normal,Metallic,Height,AO
+    texturePackingList:
+    - outputName: Base Color
+      alphaSource: Base Color
+    - outputName: Normal
+      alphaSource: Normal
+    - outputName: Roughness
+      alphaSource: Roughness
+    - outputName: Metallic
+      alphaSource: Smoothness
+    - outputName: Height
+      alphaSource: Height
+    - outputName: AO
+      alphaSource: AO
+    colorSpaceList:
+    - outputName: Base Color
+      bLinear: 0
+    - outputName: Normal
+      bLinear: 1
+    - outputName: Roughness
+      bLinear: 1
+    - outputName: Metallic
+      bLinear: 1
+    - outputName: Height
+      bLinear: 1
+    - outputName: AO
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: Default
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    - label: Standalone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    - label: iPhone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    material: {instanceID: 0}
