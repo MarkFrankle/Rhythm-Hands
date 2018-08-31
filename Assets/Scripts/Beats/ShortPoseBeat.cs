@@ -56,7 +56,7 @@ public class ShortPoseBeat : MonoBehaviour {
         gameManager.GetComponent<MyoManager>().VibrateMyo(touchedArm);
 
         // Unknown will stand in for "either"
-        bool correctPose = (_touchedMyo.pose == RequiredPose || RequiredPose == Pose.Unknown);
+        bool correctPose = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().GetPoseByArm(touchedArm) == RequiredPose);
         bool correctArm = (touchedArm == requiredArm || requiredArm == Arm.Unknown);
         if (correctPose && correctArm)
         {

@@ -4,65 +4,39 @@ using System.IO;
 using UnityEngine;
 
 public class PopulateSongsMenu : MonoBehaviour {
+    public GameObject MusicManager;
+    public GameObject SongListItemPrefab;
+    public GameObject ListParent;
 
-    public GameObject SongMenuItemPrefab;
-
-    private string path;
-    
-	void Awake () {
-        path = "Songs";
-        PopulateSongs(path);
+    void Awake () {
 	}
-	
-    public void PopulateSongs(string songPath)
-    {
-        //DirectoryInfo dir = new DirectoryInfo(songPath);
-        //FileInfo[] songFiles = dir.GetFiles("*.mp3");
-        var audioClips = Resources.LoadAll<AudioClip>(songPath);
-        GameObject currentPrefab;
-        List<string> songInfo;
-        string songTitle, songAuthor, songTime;
-        foreach(AudioClip ac in audioClips)
-        {
-            Debug.Log(ac.name);
-        }
-        /*
-        foreach(AudioClip ac in audioClips)
-        {
-            try
-            {
-                songInfo = GetSongData(ac);
-                currentPrefab = Instantiate(SongMenuItemPrefab);
 
-                songTitle = songInfo[0];
-                songAuthor = songInfo[1];
-                songTime = songInfo[2];
-                currentPrefab.GetComponent<SetSongInfo>().SetTextField(songTitle, songAuthor, songTime);
-            }
-            catch (System.FormatException e)
-            {
-                Debug.LogError("Invalid audio title format");
-            }
+    public bool PopulateSongs()
+    {
+        List<SongData> songDatas;
+
+        songDatas = new List<SongData>(MusicManager.transform.GetComponentsInChildren<SongData>());
+
+        GameObject currentListItem;
+
+        foreach (SongData sd in songDatas)
+        {
+            currentListItem = Instantiate(SongListItemPrefab, ListParent.transform);
+            SongDataStruct sds = sd.GetSongData();
+            currentListItem.GetComponent<SongListItem>().SetFields(sd.AlbumArt, sds.SongName, sds.Artist, sds.SongDuration);
+            Debug.Log("Name: " + sds.SongName + ", Artist: " + sds.Artist + ", Time: " + sds.SongDuration);
         }
-        */
-        //components = PrefabLoader.PFL.LoadAllPrefabsOfType <MonoBehaviour>(songPath);
+
+
+        return true;
     }
 
-    private List<string> GetSongData(AudioClip ac)
+    // Called when leaving song pick window to avoid duplication
+    public void DeleteList()
     {
-        List<string> songData = new List<string>();
-
-        string[] songInfo = ac.name.Split('!');
-        if (songInfo.Length != 2)
+        foreach(Transform child in ListParent.transform)
         {
-            throw new System.FormatException();
+            Destroy(child.gameObject);
         }
-
-        songData.AddRange(songInfo);
-
-        int songSeconds = (int)ac.length;
-        string songLength = (int)songSeconds / 60 + ":" + songSeconds % 60;
-        songData.Add(songLength);
-        return songData;
     }
 }

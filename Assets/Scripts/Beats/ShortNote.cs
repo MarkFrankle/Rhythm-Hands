@@ -7,10 +7,25 @@ using Pose = Thalmic.Myo.Pose;
 
 public class ShortNote : Note
 {
+    public GameObject LeftNoteCanvasPrefab;
+    public GameObject RightNoteCanvasPrefab;
+    public GameObject InnerCylinder;
+
     void Awake()
 	{
-
         AwakeTasks();
+
+        if(requiredArm != Arm.Unknown)
+        {
+            if(requiredArm == Arm.Right)
+            {
+                Instantiate(RightNoteCanvasPrefab, this.transform);
+            }
+            else
+            {
+                Instantiate(LeftNoteCanvasPrefab, this.transform);
+            }
+        }
 	}
 
     void OnTriggerEnter(Collider col)
@@ -35,6 +50,10 @@ public class ShortNote : Note
         if (RequiredPose == Pose.Unknown)
         {
             GetComponent<MeshRenderer>().enabled = true;
+            if(InnerCylinder != null)
+            {
+                InnerCylinder.GetComponent<MeshRenderer>().enabled = true;
+            }
         }
         else
         {
@@ -48,6 +67,10 @@ public class ShortNote : Note
         if (RequiredPose == Pose.Unknown)
         {
             GetComponent<MeshRenderer>().enabled = false;
+            if (InnerCylinder != null)
+            {
+                InnerCylinder.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
         else
         {
@@ -65,10 +88,9 @@ public class ShortNote : Note
         gameManager.GetComponent<MyoManager>().VibrateMyo(touchedArm);
         _touchedMyo = gameManager.GetComponent<MyoManager>().GetMyoByArm(touchedArm);
         Debug.Log("Pose on touch: " + _touchedMyo.pose + ", Req: " + RequiredPose);
-        
 
-        //bool correctPose = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().PoseCheck(touchedArm, RequiredPose));
-        bool correctPose = true;
+
+        bool correctPose = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().GetPoseByArm(touchedArm) == RequiredPose);
 
         bool correctArm = (touchedArm == requiredArm || requiredArm == Arm.Unknown);
         if (!testing)

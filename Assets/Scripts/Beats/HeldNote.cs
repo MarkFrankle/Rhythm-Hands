@@ -133,11 +133,9 @@ public class HeldNote : Note
         // Get the myo band
         Arm touchedArm = col.gameObject.GetComponent<Controller>().arm;
         _touchedMyo = gameManager.GetComponent<MyoManager>().GetMyoByArm(touchedArm);
-        
-        
-        //bool correctPose = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().PoseCheck(touchedArm, RequiredPose));
-        bool correctPose = true;
 
+
+        bool correctPose = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().GetPoseByArm(touchedArm) == RequiredPose);
 
         bool correctArm = (touchedArm == requiredArm || requiredArm == Arm.Unknown);
         if (correctPose && correctArm)

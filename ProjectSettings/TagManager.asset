@@ -16,6 +16,8 @@ TagManager:
   - ScoreText
   - MaxComboText
   - EndNote
+  - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX

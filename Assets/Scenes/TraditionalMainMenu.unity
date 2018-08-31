@@ -3203,6 +3203,13 @@ MonoBehaviour:
   myoHub: {fileID: 2106041534}
   leftMyo: {fileID: 0}
   rightMyo: {fileID: 0}
+  leftArmObject: {fileID: 0}
+  rightArmObject: {fileID: 0}
+  leftArm: {fileID: 0}
+  rightArm: {fileID: 0}
+  LeftLastPose: 65535
+  RightLastPose: 65535
+  TrackingPoses: 0
 --- !u!114 &381163671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11433,8 +11440,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextIndex: 1
   gameManager: {fileID: 381163668}
-  playButton: {fileID: 1568218707}
+  songPickBtn: {fileID: 1568218707}
   syncButton: {fileID: 477800721}
+  mainMenuCanvas: {fileID: 1179617440}
+  songPickCanvas: {fileID: 1909535138}
+  songList: {fileID: 0}
 --- !u!1 &1508846573
 GameObject:
   m_ObjectHideFlags: 0
@@ -12395,7 +12405,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0

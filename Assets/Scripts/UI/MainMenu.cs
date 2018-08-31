@@ -7,13 +7,25 @@ public class MainMenu : MonoBehaviour {
     // Game index until song picker is ready
     public int nextIndex;
     public GameObject gameManager;
-    public GameObject playButton;
+    public GameObject songPickBtn;
     public GameObject syncButton;
+    public GameObject mainMenuCanvas;
+    public GameObject songPickCanvas;
+    public GameObject songList;
 
     public void PlayGame()
     {
 
         SceneManager.LoadScene(nextIndex);
+    }
+
+    public void PopulateSongMenu()
+    {
+        mainMenuCanvas.SetActive(false);
+        songPickCanvas.SetActive(true);
+        songList.GetComponent<PopulateSongsMenu>().PopulateSongs();
+        
+
     }
 
     public void QuitGame()
@@ -29,7 +41,7 @@ public class MainMenu : MonoBehaviour {
         if (mm.MyoPairCheck())
         {
             syncButton.SetActive(false);
-            playButton.SetActive(true);
+            songPickBtn.SetActive(true);
         } else
         {
             Debug.LogError("Pairing failed");
