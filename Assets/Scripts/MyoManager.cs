@@ -27,13 +27,34 @@ public class MyoManager : MonoBehaviour {
     public Pose RightLastPose = Pose.Unknown;
     public bool TrackingPoses = false;
     bool paired = false;
-    bool waiting = false;
+    float _leftWaitingTime;
+    bool _leftWaiting = false;
+    float _rightWaitingTime;
+    bool _rightWaiting = false;
+
 
     void Awake()
     {
     }
     void Update()
     {
+        if (_leftWaiting)
+        {
+            _leftWaitingTime += Time.deltaTime;
+            if(_leftWaitingTime > .5f)
+            {
+                _leftWaiting = false;
+            }
+        }
+        if (_rightWaiting)
+        {
+            _rightWaitingTime += Time.deltaTime;
+            if (_rightWaitingTime > .5f)
+            {
+                _rightWaiting = false;
+            }
+        }
+
         if (SceneManager.GetActiveScene().name == "TraditionalEndScreen")
         {
             TrackingPoses = false;
@@ -45,19 +66,23 @@ public class MyoManager : MonoBehaviour {
             {
                 leftArmObject = GameObject.FindGameObjectWithTag("LeftController");
                 rightArmObject = GameObject.FindGameObjectWithTag("RightController");
-                leftArm = leftArmObject.GetComponent<HandsFollowPose>();
-                rightArm = rightArmObject.GetComponent<HandsFollowPose>();
+                if(leftArmObject != null && rightArmObject != null)
+                {
+                    leftArm = leftArmObject.GetComponent<HandsFollowPose>();
+                    rightArm = rightArmObject.GetComponent<HandsFollowPose>();
+                }
             }
 
-            if(!(leftArmObject == null || rightArmObject == null)){
+            if(!(leftArm == null || rightArm == null)){
                 if (leftMyo.pose == Pose.Fist)
                 {
                     leftArm.MakeFist();
                     LeftLastPose = Pose.Fist;
-                    waiting = true;
-                    StartCoroutine(WaitForPose());
+                    _leftWaiting = true;
+                    _leftWaitingTime = 0f;
+                    
                 }
-                else if (!waiting)
+                else if (!_leftWaiting)
                 {
                     leftArm.MakeIdle();
                     LeftLastPose = Pose.Rest;
@@ -67,11 +92,11 @@ public class MyoManager : MonoBehaviour {
                 {
                     rightArm.MakeFist();
                     RightLastPose = Pose.Fist;
-                    Debug.Log("RightFist Waiting: " + Time.time);
-                    waiting = true;
-                    StartCoroutine(WaitForPose());
+                    _rightWaiting = true;
+                    _rightWaitingTime = 0f;
+
                 }
-                else if (!waiting)
+                else if (!_rightWaiting)
                 {
                     rightArm.MakeIdle();
                     RightLastPose = Pose.Rest;
@@ -86,13 +111,6 @@ public class MyoManager : MonoBehaviour {
         }
     }
 
-    IEnumerator WaitForPose()
-    {
-        yield return new WaitForSeconds(.5f);
-        waiting = false;
-        Debug.Log("DoneWaiting: " + Time.time);
-    }
-
     private void NoteTesting()
     {
         if (!paired)
@@ -101,16 +119,16 @@ public class MyoManager : MonoBehaviour {
             if (MyoPairCheck())
                 paired = true;
         }
-
-        if (leftArmObject == null || rightArmObject == null)
-        {
-            leftArmObject = GameObject.FindGameObjectWithTag("LeftController");
-            rightArmObject = GameObject.FindGameObjectWithTag("RightController");
-            leftArm = leftArmObject.GetComponent<HandsFollowPose>();
-            rightArm = rightArmObject.GetComponent<HandsFollowPose>();
-            leftArm.MakeFist();
-            rightArm.MakeFist();
-        }
+        
+        //if (leftArmObject == null || rightArmObject == null)
+        //{
+        //    leftArmObject = GameObject.FindGameObjectWithTag("LeftController");
+        //    rightArmObject = GameObject.FindGameObjectWithTag("RightController");
+        //    leftArm = leftArmObject.GetComponent<HandsFollowPose>();
+        //    rightArm = rightArmObject.GetComponent<HandsFollowPose>();
+        //    leftArm.MakeFist();
+        //    rightArm.MakeFist();
+        //}
 
         if (Input.GetKeyDown(KeyCode.U))
         {
@@ -136,47 +154,13 @@ public class MyoManager : MonoBehaviour {
 
         if (paired && leftMyo.pose != Pose.Fist)
         {
-            leftArm.MakeIdle();
+            //leftArm.MakeIdle();
         }
 
         if (paired && rightMyo.pose != Pose.Fist)
         {
-            rightArm.MakeIdle();
+            //rightArm.MakeIdle();
         }
-    }
-
-    IEnumerator TrackLeftHand()
-    {
-        Debug.Log("LeftTrack");
-        if(leftMyo.pose == Pose.Fist)
-        {
-            leftArm.MakeFist();
-            LeftLastPose = Pose.Fist;
-            yield return new WaitForSeconds(.5f);
-        }
-        else
-        {
-            leftArm.MakeIdle();
-            LeftLastPose = Pose.Rest;
-            yield return null;
-        }
-    }
-
-    IEnumerator TrackRightHand()
-    {
-        Debug.Log("RightTrack");
-        if (rightMyo.pose == Pose.Fist)
-        {
-            rightArm.MakeFist();
-            yield return new WaitForSeconds(.5f);
-        }
-        else
-        {
-            rightArm.MakeIdle();
-            RightLastPose = Pose.Rest;
-            yield return null;
-        }
-
     }
 
     public Pose GetPoseByArm(Arm arm)

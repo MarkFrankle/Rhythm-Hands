@@ -64,8 +64,10 @@ public class ScoreManager : MonoBehaviour
         score += multiplier;
 
         IncreaseCombo();
-
-        sd.SetAll(score, combo, multiplier);
+        if(SceneManager.GetActiveScene().name != "NoteTesting")
+        {
+            sd.SetAll(score, combo, multiplier);
+        }
         hits++;
     }
 
@@ -75,8 +77,8 @@ public class ScoreManager : MonoBehaviour
         score += (int)(time * multiplier * 10);
 
         IncreaseCombo();
-
-        sd.SetAll(score, combo, multiplier);
+        if (SceneManager.GetActiveScene().name != "NoteTesting")
+            sd.SetAll(score, combo, multiplier);
     }
 
     private void IncreaseCombo()

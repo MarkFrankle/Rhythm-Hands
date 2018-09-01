@@ -95,7 +95,7 @@ public class HeldNote : Note
         {
             ChildWithMaterial.GetComponent<SkinnedMeshRenderer>().enabled = true;
         }
-        else if (col.gameObject.tag == "GameController")
+        else if (col.gameObject.tag == "LeftController" || col.gameObject.tag == "RightController")
         {
             ControllerTouched(col);
         }

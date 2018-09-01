@@ -10,7 +10,7 @@ using VibrationType = Thalmic.Myo.VibrationType;
 using Arm = Thalmic.Myo.Arm;
 
 public class HandsFollowPose : MonoBehaviour {
-    Animator anim;
+    public Animator anim;
     int Idle = Animator.StringToHash("Idle");
     int Fist = Animator.StringToHash("Fist");
 
@@ -21,12 +21,19 @@ public class HandsFollowPose : MonoBehaviour {
 
     public void MakeIdle()
     {
-        anim.SetTrigger(Idle);
+        if(anim != null)
+        {
+
+            anim.SetTrigger(Idle);
+        }
     }
 
     public void MakeFist()
     {
-        anim.SetTrigger(Fist);
+        if(anim != null)
+        {
+            anim.SetTrigger(Fist);
+        }
     }
 
 

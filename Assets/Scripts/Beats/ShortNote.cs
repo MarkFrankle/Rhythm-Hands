@@ -13,29 +13,28 @@ public class ShortNote : Note
 
     void Awake()
 	{
-        AwakeTasks();
 
         if(requiredArm != Arm.Unknown)
         {
             if(requiredArm == Arm.Right)
             {
-                Instantiate(RightNoteCanvasPrefab, this.transform);
+                Instantiate(RightNoteCanvasPrefab, InnerCylinder.transform);
             }
             else
             {
-                Instantiate(LeftNoteCanvasPrefab, this.transform);
+                Instantiate(LeftNoteCanvasPrefab, InnerCylinder.transform);
             }
         }
+        AwakeTasks();
 	}
 
     void OnTriggerEnter(Collider col)
     {
-
         if (col.gameObject.tag == "DestroyPlane")
         {
             DestroyPlaneTouched();
         }
-        else if (col.gameObject.tag == "GameController")
+        else if (col.gameObject.tag == "LeftController" || col.gameObject.tag == "RightController")
         {
             ControllerTouched(col);
         }
@@ -52,7 +51,7 @@ public class ShortNote : Note
             GetComponent<MeshRenderer>().enabled = true;
             if(InnerCylinder != null)
             {
-                InnerCylinder.GetComponent<MeshRenderer>().enabled = true;
+                InnerCylinder.SetActive(true);
             }
         }
         else
@@ -69,7 +68,7 @@ public class ShortNote : Note
             GetComponent<MeshRenderer>().enabled = false;
             if (InnerCylinder != null)
             {
-                InnerCylinder.GetComponent<MeshRenderer>().enabled = false;
+                InnerCylinder.SetActive(false);
             }
         }
         else

@@ -1857,14 +1857,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858904076928030}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -12.75, z: 109.5}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.3739874, y: -0.5, z: 16.233704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4358857252478828}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!4 &4760860395631118
 Transform:
   m_ObjectHideFlags: 1
@@ -2233,6 +2233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLastNote: 0
+  testing: 0
   isVisible: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.922
@@ -2240,6 +2241,9 @@ MonoBehaviour:
   RequiredPose: 1
   Hand: {fileID: 1387839980025398}
   Sleeve: {fileID: 1488717818979210}
+  LeftNoteCanvasPrefab: {fileID: 0}
+  RightNoteCanvasPrefab: {fileID: 0}
+  InnerCylinder: {fileID: 0}
 --- !u!137 &137837209871317842
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

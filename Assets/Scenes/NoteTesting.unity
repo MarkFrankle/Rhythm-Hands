@@ -152,44 +152,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114514226767977984, guid: 5e3345d3a7dea5f4a9306f7417799e12,
+        type: 2}
+      propertyPath: noteSpeed
+      value: -0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e3345d3a7dea5f4a9306f7417799e12, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &214934064 stripped
+--- !u!1 &374087935 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1595362186449282, guid: 5e3345d3a7dea5f4a9306f7417799e12,
+  m_CorrespondingSourceObject: {fileID: 1385074141542158, guid: f760cd541f5ab3d4d9ad1262a00ddb98,
     type: 2}
-  m_PrefabInternal: {fileID: 214934063}
---- !u!1 &214934065 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1106536589808578, guid: 5e3345d3a7dea5f4a9306f7417799e12,
-    type: 2}
-  m_PrefabInternal: {fileID: 214934063}
---- !u!114 &214934066
+  m_PrefabInternal: {fileID: 1592967982}
+--- !u!114 &374087937 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 214934064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d732d6056379b4c44a80b12d333b68fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLastNote: 0
-  testing: 0
-  isVisible: 1
-  gameManager: {fileID: 0}
-  noteSpeed: -0.922
-  requiredArm: 1
-  RequiredPose: 65535
-  Hand: {fileID: 0}
-  Sleeve: {fileID: 0}
-  LeftNoteCanvasPrefab: {fileID: 1225523806361432, guid: cd650ff0806d4184a81c4c1628566a30,
+  m_CorrespondingSourceObject: {fileID: 114772892020380818, guid: f760cd541f5ab3d4d9ad1262a00ddb98,
     type: 2}
-  RightNoteCanvasPrefab: {fileID: 1445444754379882, guid: 56c8e32b798f77e4dafbc391a6c1bbae,
-    type: 2}
-  InnerCylinder: {fileID: 214934065}
+  m_PrefabInternal: {fileID: 1592967982}
+  m_Script: {fileID: 11500000, guid: 72968dcde5945e14d87e4578c37b0bb0, type: 3}
 --- !u!1001 &428149295
 Prefab:
   m_ObjectHideFlags: 0
@@ -352,7 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &737726428
 Prefab:
@@ -391,7 +372,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4741315235496748, guid: c9aa88d4af7026745bde218f3b169ae7, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114877598297915240, guid: c9aa88d4af7026745bde218f3b169ae7,
         type: 2}
@@ -427,6 +408,17 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9aa88d4af7026745bde218f3b169ae7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1063056575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1180704063051966, guid: f760cd541f5ab3d4d9ad1262a00ddb98,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592967982}
+--- !u!114 &1063056577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114980988108267180, guid: f760cd541f5ab3d4d9ad1262a00ddb98,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592967982}
+  m_Script: {fileID: 11500000, guid: 72968dcde5945e14d87e4578c37b0bb0, type: 3}
 --- !u!1001 &1314092056
 Prefab:
   m_ObjectHideFlags: 0
@@ -464,7 +456,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bd5fb9de2386749819df9bd5c2c4b2fd, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: bd5fb9de2386749819df9bd5c2c4b2fd, type: 2}
       propertyPath: m_Name
@@ -649,7 +641,8 @@ Prefab:
       propertyPath: m_Name
       value: VRTK Manager (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 82852192713907718, guid: f760cd541f5ab3d4d9ad1262a00ddb98, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: f760cd541f5ab3d4d9ad1262a00ddb98, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1648963582
@@ -685,10 +678,10 @@ MonoBehaviour:
   myoHub: {fileID: 1314092057}
   leftMyo: {fileID: 1773529294}
   rightMyo: {fileID: 2066463367}
-  leftArmObject: {fileID: 0}
-  rightArmObject: {fileID: 0}
-  leftArm: {fileID: 0}
-  rightArm: {fileID: 0}
+  leftArmObject: {fileID: 1063056575}
+  rightArmObject: {fileID: 374087935}
+  leftArm: {fileID: 1063056577}
+  rightArm: {fileID: 374087937}
   LeftLastPose: 65535
   RightLastPose: 65535
   TrackingPoses: 0
@@ -743,7 +736,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1700454872
 Prefab:

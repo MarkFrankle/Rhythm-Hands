@@ -30,7 +30,7 @@ public class ShortPoseBeat : MonoBehaviour {
         {
             DestroyPlaneTouched();
         }
-        else if (col.gameObject.tag == "GameController")
+        else if (col.gameObject.tag == "LeftController" || col.gameObject.tag == "RightController")
         {
             ControllerTouched(col);
         }
