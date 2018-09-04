@@ -18,6 +18,7 @@ TagManager:
   - EndNote
   - LeftController
   - RightController
+  - MyoHub
   layers:
   - Default
   - TransparentFX

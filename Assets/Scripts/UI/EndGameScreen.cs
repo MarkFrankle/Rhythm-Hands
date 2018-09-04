@@ -46,8 +46,15 @@ public class EndGameScreen : MonoBehaviour {
         SceneManager.LoadScene(GameSceneIndex);
     }
 
+    /**
+     * Delete the Myo hub and  Game Manager so that there won't be duplicates at the main menu
+     */
     public void MainMenu()
     {
+        GameObject myoHub = GameObject.FindGameObjectWithTag("MyoHub");
+        Destroy(myoHub);
+        GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
+        Destroy(gm);
         SceneManager.LoadScene(MainMenuSceneIndex);
     }
 }
