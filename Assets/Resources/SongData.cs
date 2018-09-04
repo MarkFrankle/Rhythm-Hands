@@ -6,6 +6,8 @@ public abstract class SongData : MonoBehaviour
 {
     public AudioClip song;
     public Sprite AlbumArt;
+    public GameObject CoursePrefab;
+
     public abstract SongDataStruct GetSongData();
 }
 

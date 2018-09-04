@@ -19,6 +19,8 @@ TagManager:
   - LeftController
   - RightController
   - MyoHub
+  - SongList
+  - AudioManager
   layers:
   - Default
   - TransparentFX

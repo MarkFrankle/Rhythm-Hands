@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour {
     {
         mainMenuCanvas.SetActive(false);
         songPickCanvas.SetActive(true);
-        songList.GetComponent<PopulateSongsMenu>().PopulateSongs();
+        songList.GetComponent<SongListMenu>().PopulateSongs();
         
 
     }

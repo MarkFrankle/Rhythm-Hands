@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLastNote: 0
+  testing: 0
   isVisible: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.922

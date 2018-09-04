@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLastNote: 0
+  testing: 0
   isVisible: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.922
@@ -134,3 +135,6 @@ MonoBehaviour:
   RequiredPose: 65535
   Hand: {fileID: 0}
   Sleeve: {fileID: 0}
+  LeftNoteCanvasPrefab: {fileID: 0}
+  RightNoteCanvasPrefab: {fileID: 0}
+  InnerCylinder: {fileID: 0}
