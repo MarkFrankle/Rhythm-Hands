@@ -32,7 +32,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        if(scorePanel == null && SceneManager.GetActiveScene().name == "Game")
+        if(scorePanel == null && (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "TestingGame"))
         {
             scorePanel = GameObject.FindGameObjectWithTag("ScorePanel");
             

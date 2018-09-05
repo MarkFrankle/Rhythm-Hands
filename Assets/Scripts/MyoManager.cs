@@ -60,7 +60,7 @@ public class MyoManager : MonoBehaviour {
             TrackingPoses = false;
         }
             
-        if (SceneManager.GetActiveScene().name == "Game")
+        if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "TestingGame")
         {
             if (leftArmObject == null || rightArmObject == null)
             {

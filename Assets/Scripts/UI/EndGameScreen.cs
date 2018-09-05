@@ -44,12 +44,13 @@ public class EndGameScreen : MonoBehaviour {
     public void PlayAgain()
     {
         SceneManager.LoadScene(GameSceneIndex);
+        GameObject.Find("MusicManager").GetComponent<LoadSongInGame>().PlayAgain();
     }
 
     /**
      * Delete the Myo hub and  Game Manager so that there won't be duplicates at the main menu
      */
-    public void MainMenu()
+    public void GoToMainMenu()
     {
         GameObject myoHub = GameObject.FindGameObjectWithTag("MyoHub");
         Destroy(myoHub);
