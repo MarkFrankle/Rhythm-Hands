@@ -1489,7 +1489,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 7
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1517,7 +1517,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -4112,6 +4112,7 @@ GameObject:
   - component: {fileID: 2023839635}
   - component: {fileID: 2023839637}
   - component: {fileID: 2023839638}
+  - component: {fileID: 2023839639}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -4257,6 +4258,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2023839639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023839634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9d3bdb7e4c2f44898c94b15b38e5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2106041534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: bd5fb9de2386749819df9bd5c2c4b2fd,

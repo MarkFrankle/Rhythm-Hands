@@ -55,11 +55,13 @@ public class MyoManager : MonoBehaviour {
             }
         }
 
+        // Stop tracking poses after the game
         if (SceneManager.GetActiveScene().name == "TraditionalEndScreen")
         {
             TrackingPoses = false;
         }
             
+        // During the game, first initialize the hands, then make them follow the myo band's pose
         if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "TestingGame")
         {
             if (leftArmObject == null || rightArmObject == null)
@@ -82,6 +84,13 @@ public class MyoManager : MonoBehaviour {
                     _leftWaitingTime = 0f;
                     
                 }
+                else if (leftMyo.pose == Pose.FingersSpread)
+                {
+                    leftArm.MakeSpread();
+                    LeftLastPose = Pose.FingersSpread;
+                    _leftWaiting = true;
+                    _leftWaitingTime = 0f;
+                }
                 else if (!_leftWaiting)
                 {
                     leftArm.MakeIdle();
@@ -96,6 +105,13 @@ public class MyoManager : MonoBehaviour {
                     _rightWaitingTime = 0f;
 
                 }
+                else if (rightMyo.pose == Pose.FingersSpread)
+                {
+                    rightArm.MakeSpread();
+                    RightLastPose = Pose.FingersSpread;
+                    _rightWaiting = true;
+                    _rightWaitingTime = 0f;
+                }
                 else if (!_rightWaiting)
                 {
                     rightArm.MakeIdle();
@@ -105,10 +121,11 @@ public class MyoManager : MonoBehaviour {
             }
         }
 
-        if (SceneManager.GetActiveScene().name == "NoteTesting")
-        {
-            NoteTesting();
-        }
+        // 
+        //if (SceneManager.GetActiveScene().name == "NoteTesting")
+        //{
+        //    NoteTesting();
+        //}
     }
 
     private void NoteTesting()
@@ -215,6 +232,7 @@ public class MyoManager : MonoBehaviour {
         }
     }
 
+    // Make sure that a myo hub is initialized, two myo bands are attached, both are initialized, and are sync'ed with arms
     public bool MyoPairCheck()
     {
         ThalmicHub hub = ThalmicHub.instance;

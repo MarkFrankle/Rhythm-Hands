@@ -13,6 +13,7 @@ public class HandsFollowPose : MonoBehaviour {
     public Animator anim;
     int Idle = Animator.StringToHash("Idle");
     int Fist = Animator.StringToHash("Fist");
+    int Spread = Animator.StringToHash("Spread");
 
     void Start()
     {
@@ -36,6 +37,14 @@ public class HandsFollowPose : MonoBehaviour {
         }
     }
 
+
+    public void MakeSpread()
+    {
+        if (anim != null)
+        {
+            anim.SetTrigger(Spread);
+        }
+    }
 
 
 }

@@ -21,7 +21,8 @@ public abstract class Note : MonoBehaviour
     public GameObject Hand;
     public GameObject Sleeve;
 
-
+    // Initialization for all beats
+    // Find the game manager and score manager, start moving, and set visibility
     protected virtual void AwakeTasks()
 	{
 	    gameManager = GameObject.FindGameObjectWithTag("GameManager");

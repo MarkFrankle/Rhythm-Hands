@@ -13,10 +13,10 @@ public class ShortNote : Note
 
     void Awake()
 	{
-
-        if(requiredArm != Arm.Unknown)
+        // Put the face on beats that require specific arms
+        if (requiredArm != Arm.Unknown)
         {
-            if(requiredArm == Arm.Right)
+            if (requiredArm == Arm.Right)
             {
                 Instantiate(RightNoteCanvasPrefab, InnerCylinder.transform);
             }
@@ -25,6 +25,7 @@ public class ShortNote : Note
                 Instantiate(LeftNoteCanvasPrefab, InnerCylinder.transform);
             }
         }
+
         AwakeTasks();
 	}
 
@@ -82,19 +83,18 @@ public class ShortNote : Note
     {
 
         Arm touchedArm = col.gameObject.GetComponent<Controller>().arm;
-
-        // Vibrate the arm that touched, even if it's the wrong arm
-        gameManager.GetComponent<MyoManager>().VibrateMyo(touchedArm);
         _touchedMyo = gameManager.GetComponent<MyoManager>().GetMyoByArm(touchedArm);
         Debug.Log("Pose on touch: " + _touchedMyo.pose + ", Req: " + RequiredPose);
 
+        // Vibrate the arm that touched, even if it's the wrong arm
+        gameManager.GetComponent<MyoManager>().VibrateMyo(touchedArm);
 
-        bool correctPose = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().GetPoseByArm(touchedArm) == RequiredPose);
 
-        bool correctArm = (touchedArm == requiredArm || requiredArm == Arm.Unknown);
+        bool poseIsCorrect = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().GetPoseByArm(touchedArm) == RequiredPose);
+        bool armIsCorrect = (touchedArm == requiredArm || requiredArm == Arm.Unknown);
         if (!testing)
         {
-            if (correctPose && correctArm)
+            if (poseIsCorrect && armIsCorrect)
             {
                 sm.NoteHit();
             
