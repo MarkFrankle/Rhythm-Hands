@@ -956,7 +956,7 @@ GameObject:
   - component: {fileID: 54801080513784966}
   - component: {fileID: 65114825118378360}
   m_Layer: 0
-  m_Name: PoseFistBeat
+  m_Name: PoseLeftFistBeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

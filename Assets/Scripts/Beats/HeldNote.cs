@@ -66,7 +66,7 @@ public class HeldNote : Note
         if (_noteInProgress)
         {
             // Make sure the pose is still held. If not, score it and reset
-            if(RequiredPose != Pose.Unknown && _touchedMyo.pose != RequiredPose)
+            if (PoseRequired(condition) != Pose.Unknown && _touchedMyo.pose != PoseRequired(condition))
             {
                 EndHeldNote();
             }
@@ -135,20 +135,20 @@ public class HeldNote : Note
         _touchedMyo = gameManager.GetComponent<MyoManager>().GetMyoByArm(touchedArm);
 
 
-        bool correctPose = (RequiredPose == Pose.Unknown || gameManager.GetComponent<MyoManager>().GetPoseByArm(touchedArm) == RequiredPose);
+        bool poseIsCorrect = PoseCheck(touchedArm, gameManager.GetComponent<MyoManager>().GetPoseByArm(touchedArm));
+        bool armIsCorrect = ArmCheck(touchedArm);
 
-        bool correctArm = (touchedArm == requiredArm || requiredArm == Arm.Unknown);
-        if (correctPose && correctArm)
+        if (poseIsCorrect && armIsCorrect)
         {
             // Stop the note, start counting time, and start shrinking the outline
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             _noteInProgress = true;
             StartCoroutine(OutlineCountdown());
             StartTimer();
-            Debug.Log("Pose is correct or doesnt care");
+            //Debug.Log("Pose is correct or doesnt care");
         } else
         {
-            Debug.Log("Pose: " + correctPose + ", Arm: " + correctArm);
+            //Debug.Log("Pose: " + correctPose + ", Arm: " + armIsCorrect);
             Destroy(this.gameObject);
             sm.NoteMissed();
         }

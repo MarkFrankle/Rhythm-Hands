@@ -14,8 +14,11 @@ public abstract class Note : MonoBehaviour
 
     public GameObject gameManager;
 	public float noteSpeed = -.922f;
-    public Arm requiredArm = Arm.Unknown;
-    public Pose RequiredPose = Pose.Unknown;
+
+    public Condition condition;
+
+    //public Arm requiredArm = Arm.Unknown;
+    //public Pose RequiredPose = Pose.Unknown;
     protected ScoreManager sm;
     protected ThalmicMyo _touchedMyo = null;
     public GameObject Hand;
@@ -47,5 +50,61 @@ public abstract class Note : MonoBehaviour
     {
         Destroy(this.gameObject);
         sm.NoteMissed();
+    }
+
+    public enum Condition
+    {
+        Left,
+        Right,
+        LeftFist,
+        LeftSpread,
+        RightFist,
+        RightSpread,
+        NAFist,
+        NASpread
+    };
+
+    public Arm ArmRequired(Condition condition)
+    {
+        if (condition == Condition.Left ||
+            condition == Condition.LeftSpread || condition == Condition.LeftFist)
+        {
+            return Arm.Left;
+        }
+
+        if (condition == Condition.Right || condition == Condition.RightSpread || condition == Condition.RightFist)
+        {
+            return Arm.Right;
+        }
+        return Arm.Unknown;
+    }
+
+    public Pose PoseRequired(Condition condition)
+    {
+        if (condition == Condition.Left || condition == Condition.Right)
+        {
+            return Pose.Unknown;
+        }
+
+        if (condition == Condition.LeftFist || condition == Condition.RightFist)
+        {
+            return Pose.Fist;
+        }
+        if (condition == Condition.LeftSpread || condition == Condition.RightSpread)
+        {
+            return Pose.FingersSpread;
+        }
+
+        return Pose.Unknown;
+    }
+
+    public bool ArmCheck(Arm touchedArm)
+    {
+        return touchedArm == ArmRequired(condition) || ArmRequired(condition) == Arm.Unknown;
+    }
+
+    public bool PoseCheck(Arm touchedArm, Pose currentPose)
+    {
+        return PoseRequired(condition) == Pose.Unknown || currentPose == PoseRequired(condition);
     }
 }

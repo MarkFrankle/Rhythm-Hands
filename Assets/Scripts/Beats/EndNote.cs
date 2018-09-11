@@ -23,27 +23,11 @@ public class EndNote : Note {
 
     protected override void MakeVisible()
     {
-        if (RequiredPose == Pose.Unknown)
-        {
-            GetComponent<MeshRenderer>().enabled = true;
-        }
-        else
-        {
-            Hand.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            Sleeve.GetComponent<MeshRenderer>().enabled = true;
-        }
+
     }
 
     protected override void MakeInvisible()
     {
-        if (RequiredPose == Pose.Unknown)
-        {
-            GetComponent<MeshRenderer>().enabled = false;
-        }
-        else
-        {
-            Hand.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            Sleeve.GetComponent<MeshRenderer>().enabled = false;
-        }
+
     }
 }
