@@ -29,23 +29,11 @@ public class AudioSyncer : MonoBehaviour {
 		m_previousAudioValue = m_audioValue;
 		m_audioValue = AudioSpectrum.spectrumValue;
 
-		// if audio value went below the bias during this frame
-		if (m_previousAudioValue > bias &&
-			m_audioValue <= bias)
-		{
-			// if minimum beat interval is reached
-			if (m_timer > timeStep)
-				OnBeat();
-		}
-
-		// if audio value went above the bias during this frame
-		if (m_previousAudioValue <= bias &&
-			m_audioValue > bias)
-		{
-			// if minimum beat interval is reached
-			if (m_timer > timeStep)
-				OnBeat();
-		}
+        // if audio value went below the bias during this frame
+        if (BiasCheck())
+        {
+            OnBeat();
+        }
 
 		m_timer += Time.deltaTime;
 	}
@@ -55,12 +43,34 @@ public class AudioSyncer : MonoBehaviour {
 		OnUpdate();
 	}
 
-	public float bias;
-	public float timeStep;
-	public float timeToBeat;
-	public float restSmoothTime;
+    private bool BiasCheck()
+    {
+        if (m_previousAudioValue > bias &&
+            m_audioValue <= bias)
+        {
+            // if minimum beat interval is reached
+            if (m_timer > timeStep)
+                return true;
 
-	private float m_previousAudioValue;
+        }
+
+        // if audio value went above the bias during this frame
+        if (m_previousAudioValue <= bias &&
+            m_audioValue > bias)
+        {
+            // if minimum beat interval is reached
+            if (m_timer > timeStep)
+                return true;
+        }
+        return false;
+    }
+
+    public float bias;
+    public float timeStep;
+    public float timeToBeat;
+    public float restSmoothTime;
+
+    private float m_previousAudioValue;
 	private float m_audioValue;
 	private float m_timer;
 

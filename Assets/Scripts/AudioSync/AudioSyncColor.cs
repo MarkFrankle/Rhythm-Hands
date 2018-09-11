@@ -8,22 +8,38 @@ public class AudioSyncColor : AudioSyncer {
 
 	private IEnumerator MoveToColor(Color _target)
 	{
-		Color _curr = m_material.color;
-		Color _initial = _curr;
-		float _timer = 0;
-		
-		while (_curr != _target)
-		{
-			_curr = Color.Lerp(_initial, _target, _timer / timeToBeat);
-			_timer += Time.deltaTime;
+        float _timer = 0;
+        m_material.color = _target;
+        Color _curr = m_material.color;
 
-			m_material.color = _curr;
+        while (m_material.color != restColor)
+        {
+            m_material.color = _curr;
+            _curr = Color.Lerp(_target, restColor, _timer / timeToBeat);
+            _timer += Time.deltaTime;
 
-			yield return null;
-		}
 
-		m_isBeat = false;
-	}
+            yield return null;
+        }
+
+        m_isBeat = false;
+
+        //Color _curr = m_material.color;
+        //Color _initial = _curr;
+        //float _timer = 0;
+
+        //while (_curr != _target)
+        //{
+        //	_curr = Color.Lerp(_initial, _target, _timer / timeToBeat);
+        //	_timer += Time.deltaTime;
+
+        //	m_material.color = _curr;
+
+        //	yield return null;
+        //}
+
+        //m_isBeat = false;
+    }
 
 	private Color RandomColor()
 	{
@@ -38,7 +54,7 @@ public class AudioSyncColor : AudioSyncer {
 
 		if (m_isBeat) return;
 
-		m_material.color = Color.Lerp(m_material.color, restColor, restSmoothTime * Time.deltaTime);
+		//m_material.color = Color.Lerp(m_material.color, restColor, restSmoothTime * Time.deltaTime);
 	}
 
 	public override void OnBeat()

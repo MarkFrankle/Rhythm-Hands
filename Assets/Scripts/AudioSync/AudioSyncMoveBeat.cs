@@ -51,4 +51,5 @@ public class AudioSyncMoveBeat : AudioSyncer
 
     public float distanceToMove;
     
+    
 }
