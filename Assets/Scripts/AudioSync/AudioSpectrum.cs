@@ -7,6 +7,8 @@ using UnityEngine;
 /// Feel free to get fancy in here for more accurate visualizations!
 /// </summary>
 public class AudioSpectrum : MonoBehaviour {
+    // The multiplier for beat detection sensitivity
+    public float BeatSensitivity = 1f;
 
 	private void Update()
     {
@@ -18,7 +20,7 @@ public class AudioSpectrum : MonoBehaviour {
         // ..needing to retrieve one value (spectrumValue)
         if (m_audioSpectrum != null && m_audioSpectrum.Length > 0)
         {
-            spectrumValue = m_audioSpectrum[0] * 100;
+            spectrumValue = m_audioSpectrum[0] * 100 * BeatSensitivity;
         }
     }
 
