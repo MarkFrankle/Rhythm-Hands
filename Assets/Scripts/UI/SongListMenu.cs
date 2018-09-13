@@ -9,9 +9,24 @@ public class SongListMenu : MonoBehaviour {
     public GameObject ListParent;
     public GameObject SelectedSong = null;
     private string _gameSceneName = "TestingGame";
+    private int _timeToPreview = 30;
+    private bool _previewPlaying = false;
+    private float _timer = 0f;
 
     void Awake () {
 	}
+
+    void Update(){
+        if(_previewPlaying){
+            _timer += Time.deltaTime;
+
+            if(_timer > _timeToPreview){
+                GetComponent<AudioSource>().Stop();
+                _previewPlaying = false;
+                _timer = 0;
+            }
+        }
+    }
 
     public bool PopulateSongs()
     {
@@ -42,14 +57,27 @@ public class SongListMenu : MonoBehaviour {
         }
     }
 
-    // Sets the currently selected song
+    // Sets the currently selected song and plays a preview of length _timeToPreview
     public void SelectSong(GameObject currentSong)
     {
         SelectedSong = currentSong;
         SongData sd = SelectedSong.GetComponent<SongListItem>().SongData;
-
         coursePrefab = sd.CoursePrefab;
 
+        GetComponent<AudioSource>().clip = sd.song;
+        GetComponent<AudioSource>().Play();
+        _previewPlaying = true;
+
+
+    }
+
+    public void DeselectSong()
+    {
+        if(_previewPlaying){
+                GetComponent<AudioSource>().Stop();
+                _previewPlaying = false;
+                _timer = 0;
+        }
     }
 
     // TODO: Temporary

@@ -11,6 +11,9 @@ using UnlockType = Thalmic.Myo.UnlockType;
 using VibrationType = Thalmic.Myo.VibrationType;
 
 public class MyoManager : MonoBehaviour {
+    // Using singleton pattern for consistency and simplicity
+    public static MyoManager instance;
+
     // Myo game object to connect with.
     // This object must have a ThalmicMyo script attached.
     public GameObject myoHub;
@@ -26,6 +29,8 @@ public class MyoManager : MonoBehaviour {
     public Pose LeftLastPose = Pose.Unknown;
     public Pose RightLastPose = Pose.Unknown;
     public bool TrackingPoses = false;
+
+
     bool paired = false;
     float _leftWaitingTime;
     bool _leftWaiting = false;
@@ -35,10 +40,110 @@ public class MyoManager : MonoBehaviour {
 
     void Awake()
     {
+        if(instance == null){
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else if(instance != this){
+            Destroy(gameObject);
+        }  
     }
+
+
     void Update()
     {
-        if (_leftWaiting)
+		// Check timing on wait period after recognizing a pose
+		CheckWaiting();
+
+
+        // Stop tracking poses after the game
+        if (SceneManager.GetActiveScene().name == "TraditionalEndScreen")
+        {
+            TrackingPoses = false;
+        }
+        
+        // During the game, first initialize the hands, then make them follow the myo band's pose
+        if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "TestingGame")
+        {
+			if(InitializeHands()){
+				MirrorHandPose();
+			}
+        }
+
+        // 
+        //if (SceneManager.GetActiveScene().name == "NoteTesting")
+        //{
+        //    NoteTesting();
+        //}
+    }
+
+	private bool InitializeHands()
+	{
+		if (leftArmObject != null && rightArmObject != null)
+			return true;
+
+        leftArmObject = GameObject.FindGameObjectWithTag("LeftController");
+        rightArmObject = GameObject.FindGameObjectWithTag("RightController");
+
+		// Make sure both initialized before finding their scripts
+        if(leftArmObject != null && rightArmObject != null)
+        {
+            leftArm = leftArmObject.GetComponent<HandsFollowPose>();
+            rightArm = rightArmObject.GetComponent<HandsFollowPose>();
+			return true;
+        }
+		return false;
+	}
+
+	// Make the in-game hands follow valid poses made by user's hands
+	private void MirrorHandPose()
+	{
+		if (leftMyo.pose == Pose.Fist)
+		{
+			leftArm.MakeFist();
+			LeftLastPose = Pose.Fist;
+			_leftWaiting = true;
+			_leftWaitingTime = 0f;
+                    
+		}
+		else if (leftMyo.pose == Pose.FingersSpread)
+		{
+			leftArm.MakeSpread();
+			LeftLastPose = Pose.FingersSpread;
+			_leftWaiting = true;
+			_leftWaitingTime = 0f;
+		}
+		else if (!_leftWaiting)
+		{
+			leftArm.MakeIdle();
+			LeftLastPose = Pose.Rest;
+		}
+
+		if (rightMyo.pose == Pose.Fist)
+		{
+			rightArm.MakeFist();
+			RightLastPose = Pose.Fist;
+			_rightWaiting = true;
+			_rightWaitingTime = 0f;
+
+		}
+		else if (rightMyo.pose == Pose.FingersSpread)
+		{
+			rightArm.MakeSpread();
+			RightLastPose = Pose.FingersSpread;
+			_rightWaiting = true;
+			_rightWaitingTime = 0f;
+		}
+		else if (!_rightWaiting)
+		{
+			rightArm.MakeIdle();
+			RightLastPose = Pose.Rest;
+		}
+	}
+
+	// Check timing on wait period after recognizing a pose
+	private void CheckWaiting(){
+	    if (_leftWaiting)
         {
             _leftWaitingTime += Time.deltaTime;
             if(_leftWaitingTime > .5f)
@@ -54,78 +159,100 @@ public class MyoManager : MonoBehaviour {
                 _rightWaiting = false;
             }
         }
+	}
 
-        // Stop tracking poses after the game
-        if (SceneManager.GetActiveScene().name == "TraditionalEndScreen")
+
+    public Pose GetPoseByArm(Arm arm)
+    {
+        if(arm == Arm.Right)
         {
-            TrackingPoses = false;
+            return RightLastPose;
         }
-            
-        // During the game, first initialize the hands, then make them follow the myo band's pose
-        if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "TestingGame")
+        return LeftLastPose;
+    }
+
+    public void PairMyos()
+    {
+        if(hub == null)
         {
-            if (leftArmObject == null || rightArmObject == null)
+            hub = ThalmicHub.instance;
+        }
+
+        if(leftMyo == null || rightMyo == null)
+        {
+            List<ThalmicMyo> myos = hub.Myos;
+            foreach(ThalmicMyo myo in myos)
             {
-                leftArmObject = GameObject.FindGameObjectWithTag("LeftController");
-                rightArmObject = GameObject.FindGameObjectWithTag("RightController");
-                if(leftArmObject != null && rightArmObject != null)
+                Debug.Log("Getting Myos. Current: " + myo.arm);
+                if(myo.arm == Thalmic.Myo.Arm.Right)
                 {
-                    leftArm = leftArmObject.GetComponent<HandsFollowPose>();
-                    rightArm = rightArmObject.GetComponent<HandsFollowPose>();
+                    rightMyo = myo;
+                } else
+                {
+                    leftMyo = myo;
                 }
             }
+        }
+        MyoPairCheck();
+    }
 
-            if(!(leftArm == null || rightArm == null)){
-                if (leftMyo.pose == Pose.Fist)
-                {
-                    leftArm.MakeFist();
-                    LeftLastPose = Pose.Fist;
-                    _leftWaiting = true;
-                    _leftWaitingTime = 0f;
-                    
-                }
-                else if (leftMyo.pose == Pose.FingersSpread)
-                {
-                    leftArm.MakeSpread();
-                    LeftLastPose = Pose.FingersSpread;
-                    _leftWaiting = true;
-                    _leftWaitingTime = 0f;
-                }
-                else if (!_leftWaiting)
-                {
-                    leftArm.MakeIdle();
-                    LeftLastPose = Pose.Rest;
-                }
+    public ThalmicMyo GetMyoByArm(Arm arm)
+    {
+        ThalmicMyo returnMyo = (arm == Arm.Left) ? leftMyo : rightMyo;
+        return returnMyo;
+    }
 
-                if (rightMyo.pose == Pose.Fist)
-                {
-                    rightArm.MakeFist();
-                    RightLastPose = Pose.Fist;
-                    _rightWaiting = true;
-                    _rightWaitingTime = 0f;
+    public void VibrateMyo(Arm arm)
+    {
+        if(!MyoPairCheck())
+			return;
 
-                }
-                else if (rightMyo.pose == Pose.FingersSpread)
-                {
-                    rightArm.MakeSpread();
-                    RightLastPose = Pose.FingersSpread;
-                    _rightWaiting = true;
-                    _rightWaitingTime = 0f;
-                }
-                else if (!_rightWaiting)
-                {
-                    rightArm.MakeIdle();
-                    RightLastPose = Pose.Rest;
-                }
+		if(arm == Arm.Left)
+        {
+            leftMyo.Vibrate(VibrationType.Short);
+        }
+        else
+        {
+            rightMyo.Vibrate(VibrationType.Short);
+        }
+    }
 
+    // Make sure that a myo hub is initialized, two myo bands are attached, both are initialized, and are sync'ed with arms
+    public bool MyoPairCheck()
+    {
+        ThalmicHub hub = ThalmicHub.instance;
+
+        if (!hub.hubInitialized)
+        {
+            // Hub is not working
+            Debug.LogError("Hub is not initialized");
+            return false;
+        }
+
+        if (hub.Myos.Count != 2)
+        {
+            // Hub is working but need two myos
+            Debug.LogError("Hub is working but two Myo bands needed");
+            return false;
+        }
+
+        if (rightMyo == null || leftMyo == null)
+        {
+            Debug.LogError("Left and right bands not set in myo manager");
+            return false;
+        }
+        
+        foreach(ThalmicMyo myo in hub.Myos)
+        {
+            if (!myo.armSynced)
+            {
+                Arm nonSyncedArm = myo.arm;
+                Debug.LogError("Myo not synced on " + nonSyncedArm.ToString() + " arm");
+                return false;
             }
         }
 
-        // 
-        //if (SceneManager.GetActiveScene().name == "NoteTesting")
-        //{
-        //    NoteTesting();
-        //}
+        return true;
     }
 
     private void NoteTesting()
@@ -178,95 +305,5 @@ public class MyoManager : MonoBehaviour {
         {
             //rightArm.MakeIdle();
         }
-    }
-
-    public Pose GetPoseByArm(Arm arm)
-    {
-        if(arm == Arm.Right)
-        {
-            return RightLastPose;
-        }
-        return LeftLastPose;
-    }
-
-    public void PairMyos()
-    {
-        if(hub == null)
-        {
-            hub = ThalmicHub.instance;
-        }
-
-        if(leftMyo == null || rightMyo == null)
-        {
-            List<ThalmicMyo> myos = hub.Myos;
-            foreach(ThalmicMyo myo in myos)
-            {
-                Debug.Log("Getting Myos. Current: " + myo.arm);
-                if(myo.arm == Thalmic.Myo.Arm.Right)
-                {
-                    rightMyo = myo;
-                } else
-                {
-                    leftMyo = myo;
-                }
-            }
-        }
-        MyoPairCheck();
-    }
-
-    public ThalmicMyo GetMyoByArm(Arm arm)
-    {
-        ThalmicMyo returnMyo = (arm == Arm.Left) ? leftMyo : rightMyo;
-        return returnMyo;
-    }
-
-    public void VibrateMyo(Arm arm)
-    {
-        if(arm == Arm.Left)
-        {
-            leftMyo.Vibrate(VibrationType.Short);
-        }
-        else
-        {
-            rightMyo.Vibrate(VibrationType.Short);
-        }
-    }
-
-    // Make sure that a myo hub is initialized, two myo bands are attached, both are initialized, and are sync'ed with arms
-    public bool MyoPairCheck()
-    {
-        ThalmicHub hub = ThalmicHub.instance;
-
-        if (!hub.hubInitialized)
-        {
-            // Hub is not working
-            Debug.LogError("Hub is not initialized");
-            return false;
-        }
-
-        if (hub.Myos.Count != 2)
-        {
-            // Hub is working but need two myos
-            Debug.LogError("Hub is working but two Myo bands needed");
-            return false;
-        }
-
-        if (rightMyo == null || leftMyo == null)
-        {
-            Debug.LogError("Left and right bands not set in myo manager");
-            return false;
-        }
-        
-        foreach(ThalmicMyo myo in hub.Myos)
-        {
-            if (!myo.armSynced)
-            {
-                Arm nonSyncedArm = myo.arm;
-                Debug.LogError("Myo not synced on " + nonSyncedArm.ToString() + " arm");
-                return false;
-            }
-        }
-
-        return true;
     }
 }

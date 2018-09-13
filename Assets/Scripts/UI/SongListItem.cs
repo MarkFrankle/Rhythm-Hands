@@ -34,7 +34,8 @@ public class SongListItem : MonoBehaviour {
         SongData = songData;
     }
 
-    // When clicked in the menu, a song will "select" itself, meaning register itself with the menu and set its outline to show selection
+    // When clicked in the menu, a song will "select" itself
+    // Register itself with the menu, set its outline to show selection, start playing the song
     public void Select()
     {
         if(_songList.SelectedSong != null)
@@ -42,8 +43,9 @@ public class SongListItem : MonoBehaviour {
             _songList.SelectedSong.GetComponent<SongListItem>().Deselect();
         }
         _songList.SelectSong(this.gameObject);
-        // TODO: Visual selection implementation
-        GetComponent<Outline>().enabled = true;
+        
+        GetComponent<Outline>().enabled = true;      
+        
     }
 
     // Remove the outline when no longer selected
@@ -52,7 +54,7 @@ public class SongListItem : MonoBehaviour {
         //throw new NotImplementedException();
         //Debug.LogError("Deselect not implemented");
         GetComponent<Outline>().enabled = false;
-
+        _songList.DeselectSong();
     }
 
 

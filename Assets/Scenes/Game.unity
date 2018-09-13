@@ -3550,8 +3550,7 @@ MonoBehaviour:
   isVisible: 0
   gameManager: {fileID: 0}
   noteSpeed: -0.922
-  requiredArm: 2
-  RequiredPose: 65535
+  condition: 0
   Hand: {fileID: 0}
   Sleeve: {fileID: 0}
 --- !u!65 &1023247478
@@ -4905,6 +4904,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4727478945030370, guid: 27486926909cbca49b8683fc0f699f61,
     type: 2}
   m_PrefabInternal: {fileID: 1468244273}
+--- !u!1 &1472808949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472808953}
+  - component: {fileID: 1472808952}
+  - component: {fileID: 1472808951}
+  - component: {fileID: 1472808950}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1472808950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1472808949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade4acded04dd1f41907ad2d0db347a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myoHub: {fileID: 0}
+  leftMyo: {fileID: 0}
+  rightMyo: {fileID: 0}
+  leftArmObject: {fileID: 0}
+  rightArmObject: {fileID: 0}
+  leftArm: {fileID: 0}
+  rightArm: {fileID: 0}
+  LeftLastPose: 65535
+  RightLastPose: 65535
+  TrackingPoses: 0
+--- !u!114 &1472808951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1472808949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8274dc0451a268c478fb1a5e972621b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndGameSceneIndex: 2
+--- !u!114 &1472808952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1472808949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1f5e5ed544e2f40b02b95819c16168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scorePanel: {fileID: 0}
+  score: 0
+  combo: 0
+  multiplier: 0
+  comboCounter: 0
+--- !u!4 &1472808953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1472808949}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 276.73865, y: 208.85403, z: 6325.5317}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1484074233
 Prefab:
   m_ObjectHideFlags: 0
