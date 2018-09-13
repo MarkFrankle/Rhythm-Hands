@@ -13,8 +13,19 @@ public class SongListMenu : MonoBehaviour {
     private bool _previewPlaying = false;
     private float _timer = 0f;
 
-    void Awake () {
-	}
+    
+    public static SongListMenu instance;
+    
+    void Awake()
+    {
+        if(instance == null){
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else if(instance != this){
+            Destroy(gameObject);
+        }    
+    }
 
     void Update(){
         if(_previewPlaying){
@@ -100,7 +111,8 @@ public class SongListMenu : MonoBehaviour {
         // Switch the scene
         GetComponent<OnClickLoadScene>().LoadBySceneName(_gameSceneName);
 
-        MusicManager.GetComponent<LoadSongInGame>().StartGame(sd, coursePrefab, ac);
+        ScoreManager.instance.currentSong = sd.GetSongData().SongName + " " + sd.GetSongData().Artist;
+        LoadSongInGame.instance.StartGame(sd, coursePrefab, ac);
 
 
         //// Make the course

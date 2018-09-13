@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     // Using singleton pattern for consistency and simplicity
     public static ScoreManager instance;
 
-    public HighScoreList HighScores;
+    public HighScoreList HighScores = null;
     public GameObject scorePanel = null;
 
 	// TODO: This shoudl get renamed
@@ -24,8 +24,9 @@ public class ScoreManager : MonoBehaviour
     private int maxCombo = 0;
     private int hits = 0;
     private int misses = 0;
+    public string currentSong = "INVALID";
 
-    void OnEnable()
+    void Awake()
     {
         if(instance == null){
             DontDestroyOnLoad(gameObject);
@@ -134,8 +135,9 @@ public class ScoreManager : MonoBehaviour
             highScores = new HighScoreList();
         }
 
-		// TODO: Give access to the current song to ScoreManager so it can save it
-		//highScores.AddNewScore();
+        string playerName = "Jane Schmoe";
+		// TODO: Player profile
+		highScores.AddNewScore(currentSong, playerName, score, maxCombo, hits, misses);
         
         bf.Serialize(file, highScores);
 
@@ -159,7 +161,7 @@ public class ScoreManager : MonoBehaviour
 // Object for holding high scores
 [Serializable]
 public class HighScoreList {
-    List<ScoreStorage> scores;
+    public List<ScoreStorage> scores;
 
 	public void AddNewScore(string SongName, string PlayerName, 
 							int Score, int MaxCombo, int Hits,  int Misses)
@@ -176,13 +178,13 @@ public class HighScoreList {
 	}
  
 
-    struct ScoreStorage {
-        string SongName;
-        string PlayerName;
-        int Score;
-        int MaxCombo;
-        int Hits;
-        int Misses;
+    public struct ScoreStorage {
+        public string SongName;
+        public string PlayerName;
+        public int Score;
+        public int MaxCombo;
+        public int Hits;
+        public int Misses;
 
     }
 }

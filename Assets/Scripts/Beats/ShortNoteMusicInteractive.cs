@@ -15,10 +15,17 @@ public class ShortNoteMusicInteractive : NoteMusicInteractive
     public GameObject RightFistPrefab;
     public GameObject InnerCylinder;
 
+    // Ensures that Songs have the appropriate sensitivity
+    public float preferredSensitivity = 1;
+
+    private AudioSpectrum audioSpectrum = null;
+
     //public GameObject Visibility
 
-    void Awake()
+    void OnEnable()
 	{
+        //AudioSpectrum.instance.BeatSensitivity = preferredSensitivity;
+
         // Determine type of beat at runtime using in-editor selector
         if (condition == Condition.Right)
         {
@@ -47,6 +54,15 @@ public class ShortNoteMusicInteractive : NoteMusicInteractive
         AwakeTasks();
 	}
 
+    private void Update()
+    {
+        if(audioSpectrum == null)
+        {
+            audioSpectrum = AudioSpectrum.instance;
+            audioSpectrum.BeatSensitivity = preferredSensitivity;
+        }
+    }
+
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "DestroyPlane")
@@ -66,36 +82,36 @@ public class ShortNoteMusicInteractive : NoteMusicInteractive
     // Non pose beats need their canvas turned off
     protected override void MakeVisible()
     {
-        if (condition == Condition.Left || condition == Condition.Right)
+        GetComponent<MeshRenderer>().enabled = true;
+        if(InnerCylinder != null)
         {
-            GetComponent<MeshRenderer>().enabled = true;
-            if(InnerCylinder != null)
-            {
-                InnerCylinder.SetActive(true);
-            }
+            InnerCylinder.SetActive(true);
         }
-        else
-        {
+        // if (condition == Condition.Left || condition == Condition.Right)
+        // {
+        // }
+        // else
+        // {
             //Hand.GetComponent<SkinnedMeshRenderer>().enabled = true;
             //Sleeve.GetComponent<MeshRenderer>().enabled = true;
-        }
+        // }
     }
 
     protected override void MakeInvisible()
     {
-        if (PoseRequired(condition) == Pose.Unknown)
+        GetComponent<MeshRenderer>().enabled = false;
+        if (InnerCylinder != null)
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            if (InnerCylinder != null)
-            {
-                InnerCylinder.SetActive(false);
-            }
+            InnerCylinder.SetActive(false);
         }
-        else
-        {
-            Hand.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            Sleeve.GetComponent<MeshRenderer>().enabled = false;
-        }
+        // if (PoseRequired(condition) == Pose.Unknown)
+        // {
+        // }
+        // else
+        // {
+        //     Hand.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        //     Sleeve.GetComponent<MeshRenderer>().enabled = false;
+        // }
     }
 
     private void ControllerTouched(Collider col)

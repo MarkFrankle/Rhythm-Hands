@@ -7,8 +7,22 @@ using UnityEngine;
 /// Feel free to get fancy in here for more accurate visualizations!
 /// </summary>
 public class AudioSpectrum : MonoBehaviour {
+    // Singleton
+    public static AudioSpectrum instance;
+
     // The multiplier for beat detection sensitivity
     public float BeatSensitivity = 1f;
+
+    private void Awake()
+    {
+        if(instance == null){
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else if(instance != this){
+            Destroy(gameObject);
+        }  
+    }
 
 	private void Update()
     {

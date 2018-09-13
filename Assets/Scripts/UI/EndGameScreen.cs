@@ -15,9 +15,9 @@ public class EndGameScreen : MonoBehaviour {
     private TextMeshProUGUI maxComboText;
     public ScoreManager sm = null;
     
-    void Awake()
+    void OnEnable()
     {
-        sm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ScoreManager>();
+        sm = ScoreManager.instance;
         scoreText = score.GetComponent<TextMeshProUGUI>();
         maxComboText = maxCombo.GetComponent<TextMeshProUGUI>();
         
@@ -28,7 +28,7 @@ public class EndGameScreen : MonoBehaviour {
     {
         if(sm == null)
         {
-            sm = GameObject.Find("GameManager").GetComponent<ScoreManager>();
+            sm = ScoreManager.instance;
         }
         int scoreLength = sm.score.ToString().Length;
         string scoreString;
@@ -39,12 +39,14 @@ public class EndGameScreen : MonoBehaviour {
         
         scoreText.text = sm.score.ToString();
         maxComboText.text = sm.MaxCombo.ToString();
+
+        sm.SaveScore();
     }
 
     public void PlayAgain()
     {
         SceneManager.LoadScene(GameSceneIndex);
-        GameObject.Find("MusicManager").GetComponent<LoadSongInGame>().PlayAgain();
+        LoadSongInGame.instance.PlayAgain();
     }
 
     /**
@@ -52,10 +54,16 @@ public class EndGameScreen : MonoBehaviour {
      */
     public void GoToMainMenu()
     {
+        // These should be unnecessary because of singleton pattern? 
+        // But also might be the most efficient way to reset things? 
+        // Will change is something valuable is getting lost in the reset
+
         GameObject myoHub = GameObject.FindGameObjectWithTag("MyoHub");
         Destroy(myoHub);
         GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
         Destroy(gm);
+
+
         SceneManager.LoadScene(MainMenuSceneIndex);
     }
 }

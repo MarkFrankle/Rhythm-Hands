@@ -468,7 +468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat1: {fileID: 2100000, guid: 09c959266ac2157479e39c9159e413fc, type: 2}
   mat2: {fileID: 2100000, guid: 40bee03174b2b684bb8abcc9b636c337, type: 2}
-  note: {fileID: 1956452306297882, guid: af701c61c118a5449b3b8f51cef6e915, type: 2}
+  note: {fileID: 1595362186449282, guid: 5e3345d3a7dea5f4a9306f7417799e12, type: 2}
+  beatParent: {fileID: 0}
   CreateMode: 1
   key: 32
 --- !u!114 &114763846472388524
@@ -484,7 +485,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat1: {fileID: 2100000, guid: 09c959266ac2157479e39c9159e413fc, type: 2}
   mat2: {fileID: 2100000, guid: 40bee03174b2b684bb8abcc9b636c337, type: 2}
-  note: {fileID: 1956452306297882, guid: af701c61c118a5449b3b8f51cef6e915, type: 2}
+  note: {fileID: 0}
+  beatParent: {fileID: 0}
   CreateMode: 1
   key: 0
 --- !u!114 &114784580737540014
@@ -500,7 +502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat1: {fileID: 2100000, guid: 09c959266ac2157479e39c9159e413fc, type: 2}
   mat2: {fileID: 2100000, guid: 40bee03174b2b684bb8abcc9b636c337, type: 2}
-  note: {fileID: 1956452306297882, guid: af701c61c118a5449b3b8f51cef6e915, type: 2}
+  note: {fileID: 0}
+  beatParent: {fileID: 0}
   CreateMode: 1
   key: 0
 --- !u!114 &114850485711243682
@@ -516,6 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat1: {fileID: 2100000, guid: 09c959266ac2157479e39c9159e413fc, type: 2}
   mat2: {fileID: 2100000, guid: 40bee03174b2b684bb8abcc9b636c337, type: 2}
-  note: {fileID: 1956452306297882, guid: af701c61c118a5449b3b8f51cef6e915, type: 2}
+  note: {fileID: 0}
+  beatParent: {fileID: 0}
   CreateMode: 1
   key: 0
