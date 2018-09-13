@@ -61,6 +61,12 @@ public class ShortNoteMusicInteractive : NoteMusicInteractive
             audioSpectrum = AudioSpectrum.instance;
             audioSpectrum.BeatSensitivity = preferredSensitivity;
         }
+
+        if (transform.position.z < VisiblePlane.instance.PlanePosition.z)
+            MakeVisible();
+
+        if (transform.position.z < DestroyPlane.instance.PlanePosition.z)
+            DestroyPlaneTouched();
     }
 
     void OnTriggerEnter(Collider col)
