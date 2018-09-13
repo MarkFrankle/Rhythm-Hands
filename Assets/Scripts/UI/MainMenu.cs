@@ -8,10 +8,13 @@ public class MainMenu : MonoBehaviour {
     public int nextIndex;
     public GameObject gameManager;
     public GameObject songPickBtn;
-    public GameObject syncButton;
+    public GameObject syncBtn;
+    public GameObject highScoreBtn;
     public GameObject mainMenuCanvas;
     public GameObject songPickCanvas;
+    public GameObject highScoreCanvas;
     public GameObject songList;
+    public GameObject highScoreList;
 
     public void PlayGame()
     {
@@ -28,6 +31,14 @@ public class MainMenu : MonoBehaviour {
 
     }
 
+    public void PopulateHighScores()
+    {
+        mainMenuCanvas.SetActive(false);
+        highScoreCanvas.SetActive(true);
+        highScoreList.GetComponent<HighScoreDisplay>().PopulateHighScores();
+
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quit");
@@ -40,7 +51,7 @@ public class MainMenu : MonoBehaviour {
         mm.PairMyos();
         if (mm.MyoPairCheck())
         {
-            syncButton.SetActive(false);
+            syncBtn.SetActive(false);
             songPickBtn.SetActive(true);
         } else
         {

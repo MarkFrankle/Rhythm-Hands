@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
 
     public HighScoreList HighScores = null;
     public GameObject scorePanel = null;
+    public FileStream file = null;
 
 	// TODO: This shoudl get renamed
     private ScoreDisplay sd;
@@ -26,11 +27,14 @@ public class ScoreManager : MonoBehaviour
     private int misses = 0;
     public string currentSong = "INVALID";
 
+    private string _savePath;
+
     void Awake()
     {
         if(instance == null){
             DontDestroyOnLoad(gameObject);
             instance = this;
+            _savePath = Application.persistentDataPath + "highScores.dat";
         }
         else if(instance != this){
             Destroy(gameObject);
@@ -123,45 +127,81 @@ public class ScoreManager : MonoBehaviour
     public void SaveScore()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file;
-        HighScoreList highScores;
-        if(File.Exists(Application.persistentDataPath + "/highScores.dat"))
+        HighScoreList highScores = null;
+
+        if(File.Exists(_savePath))
         {
-            file = File.Open(Application.persistentDataPath + "/highScores.dat", FileMode.Open);
+            file = File.Open(_savePath, FileMode.Open);
+            // if(file.Length != 0){
             highScores = (HighScoreList)bf.Deserialize(file);
-        } else
-        {
-            file = File.Create(Application.persistentDataPath + "/highScores.dat");
+            // }
+        } 
+        //Debug.Log("(!File.Exists(_savePath) || file.Length == 0): " + (!File.Exists(_savePath) || file.Length == 0));
+        // if(!File.Exists(_savePath) || file.Length == 0)
+        else {
+            file = File.Create(_savePath);
             highScores = new HighScoreList();
         }
-
         string playerName = "Jane Schmoe";
+        
+        Debug.Log(_savePath);
+		// Debug.Log("Pre add: highScores.scoreList.Count: " + highScores.scoreList.Count);
+        Debug.Log("Pre Add: " + highScores.ToString());
+        
 		// TODO: Player profile
 		highScores.AddNewScore(currentSong, playerName, score, maxCombo, hits, misses);
         
+        Debug.Log("Post Add: " + highScores.ToString());
+        // Debug.Log("Post add: highScores.scoreList.Count: " + highScores.scoreList.Count);
+
         bf.Serialize(file, highScores);
+        highScores = (HighScoreList)bf.Deserialize(file);
+        Debug.Log("Immediately Deserialized: " + highScores.ToString());
 
         file.Close();
+
+        // file = File.Open(_savePath, FileMode.Open);
+        // highScores = (HighScoreList)bf.Deserialize(file);
+        
+        // Debug.Log("Closed and reopened: " + highScores.ToString());
+        // // Debug.Log("End step: highScores.scoreList.Count: " + highScores.scoreList.Count);
+        
+        // file.Close();
+
     }
 
 	// Load the current score from the high score list stored in the persistentDataPath
-    public void LoadScores()
+    public HighScoreList LoadScores()
     {
-        if(!File.Exists(Application.persistentDataPath + "/highScores.dat"))
-            return;
+        if(!File.Exists(_savePath))
+            return null;
         
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath + "/highScores.dat", FileMode.Open);
+        FileStream file = File.Open(_savePath, FileMode.Open);
         HighScores = (HighScoreList) bf.Deserialize(file);
+        file.Close();
 
-
+        return HighScores;
     }
 }
 
 // Object for holding high scores
 [Serializable]
 public class HighScoreList {
-    public List<ScoreStorage> scores;
+    public List<ScoreStorage> scoreList;
+
+    public HighScoreList()
+    {
+        scoreList = new List<ScoreStorage>();
+    }
+
+    public override string ToString(){
+        string retStr = "";
+        foreach(ScoreStorage score in scoreList){
+            retStr += score.SongName + ". " + score.PlayerName + ". " + score.Score + "\n";
+        }
+        return retStr;
+    }
 
 	public void AddNewScore(string SongName, string PlayerName, 
 							int Score, int MaxCombo, int Hits,  int Misses)
@@ -173,11 +213,12 @@ public class HighScoreList {
 		newScore.MaxCombo = MaxCombo;
 		newScore.Hits = Hits;
 		newScore.Misses = Misses;
-
-		scores.Add(newScore);
+                
+        scoreList.Add(newScore);
+        Debug.Log("AddNewScore after add: scoreList.Count: " + scoreList.Count);
 	}
  
-
+    [Serializable]
     public struct ScoreStorage {
         public string SongName;
         public string PlayerName;
@@ -185,6 +226,7 @@ public class HighScoreList {
         public int MaxCombo;
         public int Hits;
         public int Misses;
-
     }
+
+
 }
