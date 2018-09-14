@@ -16,7 +16,7 @@ public class HighScoreDisplay : MonoBehaviour {
 		_scoreManager.score = 200;
 		_scoreManager.SaveScore();
 		
-		HighScoreList highScores = _scoreManager.LoadScores();
+		HighScoreList highScores = HighScoreManager.LoadScores();
 
 		if(highScores == null)
 			return;
