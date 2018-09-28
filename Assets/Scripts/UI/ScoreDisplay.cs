@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class ScoreDisplay : MonoBehaviour
 {
-/*
-    public GameObject scoreGameObject;
-    public GameObject comboGameObject;
-    public GameObject multiplierGameObject;
-*/
     public Text scoreText;
     public Text comboText;
     public Text multiplierText;

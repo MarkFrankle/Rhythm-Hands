@@ -51,8 +51,6 @@ public class SongListItem : MonoBehaviour {
     // Remove the outline when no longer selected
     private void Deselect()
     {
-        //throw new NotImplementedException();
-        //Debug.LogError("Deselect not implemented");
         GetComponent<Outline>().enabled = false;
         _songList.DeselectSong();
     }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Holds relevant information about songs
+ * Each song with a course gets a corresponding script inheriting SongData
+ */
 public abstract class SongData : MonoBehaviour
 {
     public AudioClip song;
