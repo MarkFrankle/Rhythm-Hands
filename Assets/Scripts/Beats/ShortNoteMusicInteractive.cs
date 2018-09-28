@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Arm = Thalmic.Myo.Arm;
-using Pose = Thalmic.Myo.Pose;
 
 public class ShortNoteMusicInteractive : NoteMusicInteractive
 {
@@ -24,7 +22,10 @@ public class ShortNoteMusicInteractive : NoteMusicInteractive
 
     void OnEnable()
 	{
-        //AudioSpectrum.instance.BeatSensitivity = preferredSensitivity;
+        if(AudioSpectrum.instance != null)
+        {
+            AudioSpectrum.instance.BeatSensitivity = preferredSensitivity;
+        }
 
         // Determine type of beat at runtime using in-editor selector
         if (condition == Condition.Right)
@@ -124,14 +125,11 @@ public class ShortNoteMusicInteractive : NoteMusicInteractive
     {
 
         Arm touchedArm = col.gameObject.GetComponent<Controller>().arm;
-        _touchedMyo = gameManager.GetComponent<MyoManager>().GetMyoByArm(touchedArm);
-        Debug.Log("Pose on touch: " + _touchedMyo.pose + ", Req: " + condition);
 
         // Vibrate the arm that touched, even if it's the wrong arm
-        gameManager.GetComponent<MyoManager>().VibrateMyo(touchedArm);
+        // TODO: Vibrate the tracker?
 
-
-        bool poseIsCorrect = PoseCheck(touchedArm, gameManager.GetComponent<MyoManager>().GetPoseByArm(touchedArm));
+        bool poseIsCorrect = PoseCheck(Pose.Unknown);
         bool armIsCorrect = ArmCheck(touchedArm);
 
         // No scoreboard in testing

@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Attach to a gameObject to create a prefab when a preset key is pressed
+ * While in play mode, tap along with the beat, then pause the game and create a prefab of the beats
+ * Then add the prefab not in play mode to have a skeleton of a course
+ */
 public class NoteHardCoder : MonoBehaviour
 {
 
@@ -24,14 +29,14 @@ public class NoteHardCoder : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        //Debug.Log("Touched: " + col.gameObject.name);
-        GetComponent<MeshRenderer>().material = mat2;
-    }
+    //void OnTriggerEnter(Collider col)
+    //{
+    //    //Debug.Log("Touched: " + col.gameObject.name);
+    //    GetComponent<MeshRenderer>().material = mat2;
+    //}
 
-    void OnTriggerExit(Collider col)
-    {
-        GetComponent<MeshRenderer>().material = mat1;
-    }
+    //void OnTriggerExit(Collider col)
+    //{
+    //    GetComponent<MeshRenderer>().material = mat1;
+    //}
 }

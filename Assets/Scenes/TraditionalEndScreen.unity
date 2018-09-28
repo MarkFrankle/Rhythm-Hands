@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 67952084}
   - component: {fileID: 67952083}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 716876902}
   - component: {fileID: 716876901}
   m_Layer: 5
-  m_Name: MaxComboText
+  m_Name: MaxComboTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 891762285}
   - component: {fileID: 891762284}
   m_Layer: 5
-  m_Name: MaxComboField
+  m_Name: MaxComboText
   m_TagString: MaxComboText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,9 +1613,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameSceneIndex: 1
   MainMenuSceneIndex: 0
-  score: {fileID: 428324115}
-  maxCombo: {fileID: 891762282}
-  sm: {fileID: 0}
+  ScoreObject: {fileID: 428324115}
+  MaxComboObject: {fileID: 891762282}
 --- !u!1 &1663626317
 GameObject:
   m_ObjectHideFlags: 0

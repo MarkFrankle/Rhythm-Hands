@@ -2,24 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Arm = Thalmic.Myo.Arm;
-using Pose = Thalmic.Myo.Pose;
 
-
+/**
+ * Base class for notes
+ * Currently only used by ShortNoteMusicInteractive, now that ShortNote handles poses and held notes are gone
+ */
 public abstract class NoteMusicInteractive : MonoBehaviour
 {
-    public bool isLastNote = false;
     public bool testing = false;
     public bool isVisible;
-
+    public float noteSpeed = -.7f;
     public GameObject gameManager;
 
     public Condition condition;
 
-    //public Arm requiredArm = Arm.Unknown;
-    //public Pose RequiredPose = Pose.Unknown;
     protected ScoreManager sm;
-    protected ThalmicMyo _touchedMyo = null;
     public GameObject Hand;
     public GameObject Sleeve;
 
@@ -29,6 +26,7 @@ public abstract class NoteMusicInteractive : MonoBehaviour
 	{
 	    gameManager = GameObject.FindGameObjectWithTag("GameManager");
         sm = gameManager.GetComponent<ScoreManager>();
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, noteSpeed);
 
         if (isVisible)
         {
@@ -106,7 +104,7 @@ public abstract class NoteMusicInteractive : MonoBehaviour
     }
 
     // Checks if a given pose is acceptable based on the beat's condition
-    public bool PoseCheck(Arm touchedArm, Pose currentPose)
+    public bool PoseCheck(Pose currentPose)
     {
         return PoseRequired(condition) == Pose.Unknown || currentPose == PoseRequired(condition);
     }

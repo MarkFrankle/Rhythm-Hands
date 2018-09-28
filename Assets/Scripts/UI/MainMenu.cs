@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
-    // Game index until song picker is ready
-    public int nextIndex;
     public GameObject gameManager;
     public GameObject songPickBtn;
     public GameObject syncBtn;
@@ -15,12 +13,6 @@ public class MainMenu : MonoBehaviour {
     public GameObject highScoreCanvas;
     public GameObject songList;
     public GameObject highScoreList;
-
-    public void PlayGame()
-    {
-
-        SceneManager.LoadScene(nextIndex);
-    }
 
     public void PopulateSongMenu()
     {
@@ -47,15 +39,15 @@ public class MainMenu : MonoBehaviour {
 
     public void SyncMyos()
     {
-        MyoManager mm = gameManager.GetComponent<MyoManager>();
-        mm.PairMyos();
-        if (mm.MyoPairCheck())
-        {
-            syncBtn.SetActive(false);
-            songPickBtn.SetActive(true);
-        } else
-        {
-            Debug.LogError("Pairing failed");
-        }
+        //MyoManager mm = gameManager.GetComponent<MyoManager>();
+        //mm.PairMyos();
+        //if (mm.MyoPairCheck())
+        //{
+        //    syncBtn.SetActive(false);
+        //    songPickBtn.SetActive(true);
+        //} else
+        //{
+        //    Debug.LogError("Pairing failed");
+        //}
     }
 }

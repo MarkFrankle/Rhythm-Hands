@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-using LockingPolicy = Thalmic.Myo.LockingPolicy;
-using Pose = Thalmic.Myo.Pose;
-using UnlockType = Thalmic.Myo.UnlockType;
-using VibrationType = Thalmic.Myo.VibrationType;
-using Arm = Thalmic.Myo.Arm;
 
+/**
+ * Tells the hands to make poses
+ */
 public class HandsFollowPose : MonoBehaviour {
     public Animator anim;
     int Idle = Animator.StringToHash("Idle");
