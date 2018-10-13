@@ -25,13 +25,14 @@ public class PlayAnimationOnTrigger : MonoBehaviour {
 
     public void PlayAnimation(object sender, ControllerInteractionEventArgs e)
     {
-        SteamVR_Controller.Input((int)_steamVRController.controllerIndex).TriggerHapticPulse((ushort)9999);
+        
+        //SteamVR_Controller.Input((int)_steamVRController.controllerIndex).TriggerHapticPulse((ushort)9999);
         Instantiate(AnimationPrefab, this.transform);
     }
 
     public void PlayAnimationSteamVR(object sender, ClickedEventArgs e)
     {
-        SteamVR_Controller.Input((int)_steamVRController.controllerIndex).TriggerHapticPulse((ushort)9999);
+        //SteamVR_Controller.Input((int)_steamVRController.controllerIndex).TriggerHapticPulse((ushort)9999);
 
         Instantiate(AnimationPrefab, this.transform);
     }
