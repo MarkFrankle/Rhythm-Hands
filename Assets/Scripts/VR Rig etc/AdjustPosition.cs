@@ -24,9 +24,12 @@ public class AdjustPosition : MonoBehaviour {
         {
             float headsetY = Headset.transform.position.y;
             float headsetZ = Headset.transform.position.z;
-            NotesParent.transform.position = new Vector3(NotesParent.transform.position.x, headsetY, NotesParent.transform.position.z);
-            UICanvas.transform.position = new Vector3(UICanvas.transform.position.x, headsetY, UICanvas.transform.position.z);
-            RecordPlayers.transform.position = new Vector3(RecordPlayers.transform.position.x, headsetY - _offsetY, headsetZ + _offsetZ);
+            if(NotesParent != null)
+                NotesParent.transform.position = new Vector3(NotesParent.transform.position.x, headsetY, NotesParent.transform.position.z);
+            if (UICanvas != null)
+                UICanvas.transform.position = new Vector3(UICanvas.transform.position.x, headsetY, UICanvas.transform.position.z);
+            if (RecordPlayers != null)
+                RecordPlayers.transform.position = new Vector3(RecordPlayers.transform.position.x, headsetY - _offsetY, headsetZ + _offsetZ);
             _set = true;
         }
 

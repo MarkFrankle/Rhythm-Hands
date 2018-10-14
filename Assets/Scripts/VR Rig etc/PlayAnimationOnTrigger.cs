@@ -19,57 +19,28 @@ public class PlayAnimationOnTrigger : MonoBehaviour {
     void Start()
     {
         _steamVRController = GetComponent<SteamVR_TrackedController>();
-        _steamVRController.TriggerClicked += PlayAnimationSteamVR;
+        _steamVRController.TriggerClicked += MakeFist;
+        _steamVRController.TriggerUnclicked += MakeIdle;
 
-        _controller = GetComponent<VRTK_ControllerEvents>();
-        _controller.TriggerHairlineStart += PlayAnimation;
-        _controller.TriggerPressed += PlayAnimation;
 
         _handsFollowPose = ObjectWithAnimator.GetComponent<HandsFollowPose>();
     }
 
-    public void PlayAnimation(object sender, ControllerInteractionEventArgs e)
+    public void MakeFist(object sender, ClickedEventArgs e)
     {
-
-        //SteamVR_Controller.Input((int)_steamVRController.controllerIndex).TriggerHapticPulse((ushort)9999);
-        //Instantiate(AnimationPrefab, this.transform);
         _handsFollowPose.MakeFist();
-        _timing = true;
-        _timer = 0f;
+        trigger = true;
     }
 
-    public void PlayAnimationSteamVR(object sender, ClickedEventArgs e)
+    public void MakeIdle(object sender, ClickedEventArgs e)
     {
-        //SteamVR_Controller.Input((int)_steamVRController.controllerIndex).TriggerHapticPulse((ushort)9999);
-
-        //Instantiate(AnimationPrefab, this.transform);
-        _handsFollowPose.MakeFist();
+        _handsFollowPose.MakeIdle();
+        trigger = false;
     }
 
     void Update()
     {
-        if (_controller.triggerTouched)
-        {
-            trigger = true;
-            
-        } else
-        {
-            trigger = false;
-        }
-
-        if (_timing)
-        {
-            _timer += Time.deltaTime;
-            if(_timer > .2)
-            {
-                _timing = false;
-                _timer = 0;
-            }
-        }
-        else
-        {
-            _handsFollowPose.MakeIdle();
-        }
+        
     }
 	
 }
