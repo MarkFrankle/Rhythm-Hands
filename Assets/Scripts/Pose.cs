@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Pose
+public enum HandPose
 {
     Rest,
     Fist,

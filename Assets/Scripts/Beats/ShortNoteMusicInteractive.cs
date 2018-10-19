@@ -129,7 +129,7 @@ public class ShortNoteMusicInteractive : NoteMusicInteractive
         // Vibrate the arm that touched, even if it's the wrong arm
         // TODO: Vibrate the tracker?
 
-        bool poseIsCorrect = PoseCheck(Pose.Unknown);
+        bool poseIsCorrect = PoseCheck(HandPose.Unknown);
         bool armIsCorrect = ArmCheck(touchedArm);
 
         // No scoreboard in testing

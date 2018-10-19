@@ -78,23 +78,23 @@ public abstract class NoteMusicInteractive : MonoBehaviour
     }
 
     // Returns which pose, if any, a condition requires
-    public Pose PoseRequired(Condition condition)
+    public HandPose PoseRequired(Condition condition)
     {
         if (condition == Condition.Left || condition == Condition.Right)
         {
-            return Pose.Unknown;
+            return HandPose.Unknown;
         }
 
         if (condition == Condition.LeftFist || condition == Condition.RightFist)
         {
-            return Pose.Fist;
+            return HandPose.Fist;
         }
         if (condition == Condition.LeftSpread || condition == Condition.RightSpread)
         {
-            return Pose.FingersSpread;
+            return HandPose.FingersSpread;
         }
 
-        return Pose.Unknown;
+        return HandPose.Unknown;
     }
 
     // Checks if a given arm is acceptable based on the beat's condition
@@ -104,8 +104,8 @@ public abstract class NoteMusicInteractive : MonoBehaviour
     }
 
     // Checks if a given pose is acceptable based on the beat's condition
-    public bool PoseCheck(Pose currentPose)
+    public bool PoseCheck(HandPose currentPose)
     {
-        return PoseRequired(condition) == Pose.Unknown || currentPose == PoseRequired(condition);
+        return PoseRequired(condition) == HandPose.Unknown || currentPose == PoseRequired(condition);
     }
 }

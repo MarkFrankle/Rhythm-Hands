@@ -15,33 +15,50 @@ public class Handle : MonoBehaviour {
 
     public PlayAnimationOnTrigger triggerCheck;
 
-
-    void OnTriggerEnter(Collider col)
+    void Start()
     {
-        Debug.Log("Entered" + gameObject.name);
 
-        if(col.gameObject.tag == "LeftController" || col.gameObject.tag == "RightController")
-        {
-            triggerCheck = col.transform.parent.gameObject.GetComponent<PlayAnimationOnTrigger>();
+        //public event ClickedEventHandler TriggerClicked;
+        //public delegate void ClickedEventHandler(object sender, ClickedEventArgs e);
+        //_steamVRController.TriggerClicked += MakeFist;
+        //public void MakeFist(object sender, ClickedEventArgs e)
 
-            if (triggerCheck.trigger && _currentEffect == null)
-            {
-                _currentEffect = Instantiate(GrabEffectPrefab, this.transform);
-            }
-        }
+    //public event OnAttachedToHandDelegate onAttachedToHand;
+    //public delegate void OnAttachedToHandDelegate(Hand hand);
+
+
     }
 
-    void OnTriggerExit(Collider col)
+    public void MakeGlow(Valve.VR.InteractionSystem.Hand hand)
     {
-        Debug.Log("Left" + gameObject.name);
-
-        if (col.gameObject.tag == "LeftController" || col.gameObject.tag == "RightController")
-        {
-            if(_currentEffect != null)
-            {
-                Destroy(_currentEffect);
-                _currentEffect = null;
-            }
-        }
     }
+
+    //void OnTriggerEnter(Collider col)
+    //{
+    //    Debug.Log("Entered" + gameObject.name);
+
+    //    if(col.gameObject.tag == "LeftController" || col.gameObject.tag == "RightController")
+    //    {
+    //        triggerCheck = col.transform.parent.gameObject.GetComponent<PlayAnimationOnTrigger>();
+
+    //        if (triggerCheck.trigger && _currentEffect == null)
+    //        {
+    //            _currentEffect = Instantiate(GrabEffectPrefab, this.transform);
+    //        }
+    //    }
+    //}
+
+    //void OnTriggerExit(Collider col)
+    //{
+    //    Debug.Log("Left" + gameObject.name);
+
+    //    if (col.gameObject.tag == "LeftController" || col.gameObject.tag == "RightController")
+    //    {
+    //        if(_currentEffect != null)
+    //        {
+    //            Destroy(_currentEffect);
+    //            _currentEffect = null;
+    //        }
+    //    }
+    //}
 }
